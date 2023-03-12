@@ -1,0 +1,135 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<script type="text/x-kendo-template" id="companyListing_row">
+    <tr data-uid="#: uid #">
+        <td></td>
+        <td><span data-bind="text: Name"></span></td>
+        <td><span data-bind="text: IsActive"></span></td>
+    </tr>
+</script>
+
+<div class="container">
+
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col">
+            <div class="header">
+                <div class="header-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h6 class="header-pretitle">
+                                -
+                            </h6>
+                            <h1 class="header-title">
+                                Customers
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="company-table-container" class="row mt-4">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-cell-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Is Active</th>
+                        </tr>
+                    </thead>
+@*                    <tbody data-bind="visible: showSpinner">
+                        <tr>
+                            <td colspan="3">
+                                <div class="d-flex justify-content-center text-info">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div
+                            </td>
+                        </tr>
+                    </tbody>*@
+                    <tbody data-bind="source: Data" 
+                            data-template="companyListing_row">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (async function onCompanyIndexLoad(global, $, kendo) {
+
+        var companyPageModel = kendo.data.Model.define({
+            fields: {
+                IsBusy: { type: 'boolean', default: 'false' },
+                Data: { type: 'object', default: [] },
+                Errors: { type: 'object', default: [] },
+            },
+
+            // returns true if errrors present, otherwise false
+            hasErrors: function hasErrors() {
+                return this.get('Errors').length > 0;
+            },
+            showSpinner: function showSpinner() {
+                return this.get('IsBusy') === true;
+            }
+        });
+
+        var companyModel = kendo.data.Model.define({
+            fields: {
+                Id: { type: 'number', default: 0 },
+                Name: { type: 'string', default: '' },
+                IsActive: { type: 'boolean', default: false }
+            }
+        });
+
+        var pageModel = new companyPageModel();
+
+        async function get () {
+
+            var url = global.Main.rootUrl + "/Company/AllCompanies";
+
+            try{
+                pageModel.set('IsBusy', true);
+                var response = await $.ajax({
+                    method: "GET",
+                    url: url,
+                });
+
+                if (response.isSuccess) {
+                    var companies = response.data;
+                    pageModel.set('Data', response.data.map(e => new companyModel(e)));
+                } else {
+                    pageModel.set('Data', []);
+                    pageModel.set('Errors', response.errors);
+                }
+
+                console.log("PageModel: ", pageModel);
+
+            } catch (err) {
+                console.error("Failed to fetch companies");
+            } finally {
+                pageModel.set('IsBusy', false);
+            }
+            
+        };
+
+        $(document).ready(async function onCompanyIndexReady(){
+
+            await get();
+
+            kendo.bind($("#company-table-container"), pageModel);
+        });
+
+    })(window, jQuery, kendo);
+</script>
