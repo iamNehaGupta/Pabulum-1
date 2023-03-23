@@ -1,0 +1,364 @@
+2023-03-23 17:08:13.652 +05:30 [INF] Registered 5 endpoints in 375 milliseconds.
+2023-03-23 17:08:13.952 +05:30 [INF] User profile is available. Using 'C:\Users\Neha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-03-23 17:09:40.945 +05:30 [ERR] An error occurred seeding the DB. A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (53): The network path was not found.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\Pabulum\Pabulum-1\src\TYProject.Web\Program.cs:line 96
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+2023-03-23 17:09:41.222 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-23 17:09:41.222 +05:30 [INF] Hosting environment: Development
+2023-03-23 17:09:41.222 +05:30 [INF] Content root path: C:\Pabulum\Pabulum-1\src\TYProject.Web
+2023-03-23 17:09:41.269 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-03-23 17:09:41.427 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-03-23 17:09:41.465 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:09:41.477 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-03-23 17:09:41.503 +05:30 [INF] Executing ViewResult, running view Index.
+2023-03-23 17:09:42.325 +05:30 [INF] Executed ViewResult - view Index executed in 830.7448ms.
+2023-03-23 17:09:42.333 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 854.9426ms
+2023-03-23 17:09:42.334 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:09:42.417 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/css/kendo.bootstrap.min.css - -
+2023-03-23 17:09:42.417 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-03-23 17:09:42.417 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-03-23 17:09:42.417 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/TYProject.Web.styles.css?v=DnQD8rBfRTgHB1Qav2fhUdTwlXE4pCk56iXP6SfgRrc - -
+2023-03-23 17:09:42.421 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 1138.7196ms
+2023-03-23 17:09:42.428 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - -
+2023-03-23 17:09:42.436 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2023-03-23 17:09:42.480 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-03-23 17:09:42.480 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 27.1530ms
+2023-03-23 17:09:42.486 +05:30 [INF] The file /css/site.css was not modified
+2023-03-23 17:09:42.486 +05:30 [INF] The file /css/kendo.bootstrap.min.css was not modified
+2023-03-23 17:09:42.486 +05:30 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2023-03-23 17:09:42.487 +05:30 [INF] The file /TYProject.Web.styles.css was not modified
+2023-03-23 17:09:42.486 +05:30 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2023-03-23 17:09:42.486 +05:30 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-03-23 17:09:42.490 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 73.2020ms
+2023-03-23 17:09:42.490 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 304 - text/css 54.6394ms
+2023-03-23 17:09:42.490 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/css/kendo.bootstrap.min.css - - - 304 - text/css 73.1896ms
+2023-03-23 17:09:42.490 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - text/javascript 9.7171ms
+2023-03-23 17:09:42.490 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/lib/jquery/dist/jquery.min.js - - - 304 - text/javascript 61.8738ms
+2023-03-23 17:09:42.490 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/TYProject.Web.styles.css?v=DnQD8rBfRTgHB1Qav2fhUdTwlXE4pCk56iXP6SfgRrc - - - 304 - text/css 73.2021ms
+2023-03-23 17:09:42.497 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/js/kendo-ui-license.js - -
+2023-03-23 17:09:42.497 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2023-03-23 17:09:42.497 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/js/kendo.all.min.js - -
+2023-03-23 17:09:42.498 +05:30 [INF] The file /js/site.js was not modified
+2023-03-23 17:09:42.498 +05:30 [INF] The file /js/kendo.all.min.js was not modified
+2023-03-23 17:09:42.498 +05:30 [INF] The file /js/kendo-ui-license.js was not modified
+2023-03-23 17:09:42.498 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/js/kendo-ui-license.js - - - 304 - text/javascript 1.6535ms
+2023-03-23 17:09:42.498 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/js/kendo.all.min.js - - - 304 - text/javascript 1.6018ms
+2023-03-23 17:09:42.498 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 304 - text/javascript 1.6536ms
+2023-03-23 17:09:42.527 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-03-23 17:09:42.614 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 87.0322ms
+2023-03-23 17:09:53.382 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-03-23 17:09:53.391 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-03-23 17:09:53.396 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-03-23 17:09:53.402 +05:30 [INF] Executing ViewResult, running view Index.
+2023-03-23 17:09:53.415 +05:30 [INF] Executed ViewResult - view Index executed in 15.0719ms.
+2023-03-23 17:09:53.416 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 19.3886ms
+2023-03-23 17:09:53.416 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-03-23 17:09:53.419 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 36.2081ms
+2023-03-23 17:09:53.465 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-03-23 17:09:53.467 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7278ms
+2023-03-23 17:09:53.484 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-03-23 17:09:53.517 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.9196ms
+2023-03-23 17:09:53.621 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-03-23 17:09:53.622 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-03-23 17:09:53.623 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-03-23 17:09:55.383 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-03-23 17:09:55.387 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:09:55.388 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-03-23 17:09:55.390 +05:30 [INF] Executing ViewResult, running view Index.
+2023-03-23 17:09:55.402 +05:30 [INF] Executed ViewResult - view Index executed in 12.1021ms.
+2023-03-23 17:09:55.402 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 14.2977ms
+2023-03-23 17:09:55.402 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:09:55.407 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 23.2900ms
+2023-03-23 17:09:55.427 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-03-23 17:09:55.428 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.3905ms
+2023-03-23 17:09:55.433 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-03-23 17:09:55.464 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.5822ms
+2023-03-23 17:09:56.877 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-03-23 17:09:56.879 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-03-23 17:09:56.879 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-03-23 17:09:56.880 +05:30 [INF] Executing ViewResult, running view Index.
+2023-03-23 17:09:56.901 +05:30 [INF] Executed ViewResult - view Index executed in 21.3043ms.
+2023-03-23 17:09:56.901 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 22.2781ms
+2023-03-23 17:09:56.901 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-03-23 17:09:56.905 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 28.6790ms
+2023-03-23 17:09:56.924 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-03-23 17:09:56.926 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7290ms
+2023-03-23 17:09:56.930 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-03-23 17:09:56.959 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.7987ms
+2023-03-23 17:09:57.012 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-03-23 17:09:57.013 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-03-23 17:09:57.013 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-03-23 17:10:08.334 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-03-23 17:10:08.336 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:10:08.336 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-03-23 17:10:08.337 +05:30 [INF] Executing ViewResult, running view Index.
+2023-03-23 17:10:08.351 +05:30 [INF] Executed ViewResult - view Index executed in 13.5192ms.
+2023-03-23 17:10:08.351 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 14.3346ms
+2023-03-23 17:10:08.351 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:10:08.353 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 18.5995ms
+2023-03-23 17:10:08.374 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-03-23 17:10:08.379 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 5.3701ms
+2023-03-23 17:10:08.381 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-03-23 17:10:08.415 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.0448ms
+2023-03-23 17:10:10.283 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-03-23 17:10:10.285 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:10:10.285 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-03-23 17:10:10.286 +05:30 [INF] Executing ViewResult, running view Index.
+2023-03-23 17:10:10.296 +05:30 [INF] Executed ViewResult - view Index executed in 10.4609ms.
+2023-03-23 17:10:10.296 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 11.2013ms
+2023-03-23 17:10:10.297 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:10:10.298 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 15.4745ms
+2023-03-23 17:10:10.312 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-03-23 17:10:10.313 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.1097ms
+2023-03-23 17:10:10.321 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-03-23 17:10:10.353 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.8877ms
+2023-03-23 17:10:11.778 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-03-23 17:10:11.780 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-03-23 17:10:11.780 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-03-23 17:10:11.781 +05:30 [INF] Executing ViewResult, running view Index.
+2023-03-23 17:10:11.792 +05:30 [INF] Executed ViewResult - view Index executed in 11.1332ms.
+2023-03-23 17:10:11.792 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 11.901ms
+2023-03-23 17:10:11.792 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-03-23 17:10:11.795 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 16.5706ms
+2023-03-23 17:10:11.809 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-03-23 17:10:11.810 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.4053ms
+2023-03-23 17:10:11.815 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-03-23 17:10:11.843 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 27.9634ms
+2023-03-23 17:10:11.902 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-03-23 17:10:11.902 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-03-23 17:10:11.902 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-03-23 17:10:12.124 +05:30 [ERR] An error occurred using the connection to database 'TYProject' on server 'DESKTOP-0SAV4E8'.
+2023-03-23 17:10:12.130 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2023-03-23 17:10:12.194 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult'.
+2023-03-23 17:10:12.275 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 15259.7526ms
+2023-03-23 17:10:12.275 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-03-23 17:10:12.280 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 15266.6795ms
+2023-03-23 17:10:13.214 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-03-23 17:10:13.216 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:10:13.216 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-03-23 17:10:13.218 +05:30 [INF] Executing ViewResult, running view Index.
+2023-03-23 17:10:13.231 +05:30 [INF] Executed ViewResult - view Index executed in 13.949ms.
+2023-03-23 17:10:13.232 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 15.57ms
+2023-03-23 17:10:13.232 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-03-23 17:10:13.235 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 21.5098ms
+2023-03-23 17:10:13.248 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-03-23 17:10:13.250 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.0659ms
+2023-03-23 17:10:13.258 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-03-23 17:10:13.288 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.7610ms
+2023-03-23 17:10:14.710 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-03-23 17:10:14.712 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-03-23 17:10:14.712 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-03-23 17:10:14.713 +05:30 [INF] Executing ViewResult, running view Index.
+2023-03-23 17:10:14.725 +05:30 [INF] Executed ViewResult - view Index executed in 12.1223ms.
+2023-03-23 17:10:14.725 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 13.083ms
+2023-03-23 17:10:14.725 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-03-23 17:10:14.730 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 19.7904ms
+2023-03-23 17:10:14.745 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-03-23 17:10:14.747 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.2840ms
+2023-03-23 17:10:14.753 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-03-23 17:10:14.787 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 33.4216ms
+2023-03-23 17:10:14.846 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-03-23 17:10:14.846 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-03-23 17:10:14.846 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-03-23 17:10:26.922 +05:30 [ERR] An error occurred using the connection to database 'TYProject' on server 'DESKTOP-0SAV4E8'.
+2023-03-23 17:10:26.924 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2023-03-23 17:10:26.960 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult'.
+2023-03-23 17:10:26.961 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 15057.4038ms
+2023-03-23 17:10:26.961 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-03-23 17:10:26.961 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 15058.4339ms
+2023-03-23 17:10:29.852 +05:30 [ERR] An error occurred using the connection to database 'TYProject' on server 'DESKTOP-0SAV4E8'.
+2023-03-23 17:10:29.853 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+System.InvalidOperationException: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached.
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2023-03-23 17:10:29.894 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult'.
+2023-03-23 17:10:29.895 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 15046.9018ms
+2023-03-23 17:10:29.895 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-03-23 17:10:29.895 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 15047.9359ms
+2023-03-23 17:11:19.329 +05:30 [ERR] An error occurred using the connection to database 'TYProject' on server 'DESKTOP-0SAV4E8'.
+2023-03-23 17:11:19.332 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (53): The network path was not found.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (53): The network path was not found.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+2023-03-23 17:11:19.401 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult'.
+2023-03-23 17:11:19.401 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 85770.0203ms
+2023-03-23 17:11:19.402 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-03-23 17:11:19.402 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 85772.2698ms
