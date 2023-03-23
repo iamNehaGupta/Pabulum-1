@@ -183,7 +183,7 @@ public class CompanyController : Controller
     try
     {
       var companies = context.Companies
-        .Select(x => new CompanyBasicInfoModel(x.Id, x.Name, x.IsDeleted))
+        .Select(x => new CompanyViewModel(x.Id, x.Name, !x.IsDeleted))
         .ToList();
 
       return Json(new OperationResult<IList<CompanyBasicInfoModel>>(ModelState.IsValid, ModelState.GetErrors())
