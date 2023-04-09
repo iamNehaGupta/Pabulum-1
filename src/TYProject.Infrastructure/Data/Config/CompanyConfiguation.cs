@@ -8,7 +8,7 @@ internal class CompanyConfiguation : IEntityTypeConfiguration<Company>
   public void Configure(EntityTypeBuilder<Company> entity)
   {
     entity.ToTable("Company");
-
+    entity.Property(e => e.Id).HasColumnName("ID");
     entity.Property(e => e.CreatedOnDate).HasColumnType("datetime");
     entity.Property(e => e.Description).HasMaxLength(500);
     entity.Property(e => e.LastModifiedOnDate).HasColumnType("datetime");
@@ -20,10 +20,10 @@ internal class CompanyConfiguation : IEntityTypeConfiguration<Company>
         .IsRowVersion()
     .IsConcurrencyToken();
 
-    entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.CompanyCreatedByNavigation)
+    entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.CompanyCreatedByNavigations)
         .HasForeignKey(d => d.CreatedBy)
         .OnDelete(DeleteBehavior.ClientSetNull);
 
-    entity.HasOne(d => d.LastModifiedByNavigation).WithMany(p => p.CompanyLastModifiedByNavigation).HasForeignKey(d => d.LastModifiedBy);
+    entity.HasOne(d => d.LastModifiedByNavigation).WithMany(p => p.CompanyLastModifiedByNavigations).HasForeignKey(d => d.LastModifiedBy);
   }
 }

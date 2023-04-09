@@ -15,7 +15,7 @@ internal class ContactConfiguration : IEntityTypeConfiguration<Contact>
       entity.Property(e => e.Email)
           .HasMaxLength(25)
           .IsUnicode(false);
-      entity.Property(e => e.Id)
+      entity.Property(e => e.ID)
           .ValueGeneratedOnAdd()
           .HasColumnName("ID");
       entity.Property(e => e.Name)

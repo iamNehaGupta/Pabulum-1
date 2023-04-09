@@ -1,17 +1,12 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.IdentityModel.Tokens.Jwt;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TYProject.Core.CompanyAggregate;
 using TYProject.Core.PersonAggregate;
 using TYProject.Infrastructure.Data;
 using TYProject.Web.Extensions;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace TYProject.Web.Controllers;
-public class CompanyController : Controller
+public partial class CompanyController : Controller
 {
   private const string InternalServerErrorMessage = "Due to some technical difficulty we are unable to process your request. Please contact support";
 
@@ -62,7 +57,14 @@ public class CompanyController : Controller
     }
     try
     {
-      var model = new Company(0, payload.Name, payload.Description, payload.IsDeleted, 1, DateTime.Now, null, null, Array.Empty<byte>());
+      var model = new Company()
+      {
+        Name = payload.Name,
+        Description = payload.Description,
+        IsDeleted = payload.IsDeleted,
+        CreatedBy = 1,
+        CreatedOnDate = DateTime.Now
+      };
 
       var company = context.Companies.AddAsync(model);
 
@@ -238,31 +240,6 @@ public class CompanyController : Controller
     return new OperationResult(ModelState.IsValid, ModelState.GetErrors());
   }
 
-  public class OperationResult<T>
-  {
-    public OperationResult(bool isSuccess, IList<string> errors)
-    {
-      this.IsSuccess = isSuccess;
-      this.Errors = errors;
-    }
-
-    public T? Data { get; set; }
-    public bool IsSuccess { get; set; }
-    public IList<string> Errors { get; set; }
-  }
-
-  public class OperationResult
-  {
-    public OperationResult(bool isSuccess, IList<string> errors)
-    {
-      this.IsSuccess = isSuccess;
-      this.Errors = errors;
-    }
-
-    public bool IsSuccess { get; set; }
-    public IList<string> Errors { get; set; }
-  }
-
   public class CompanyBasicInfoModel
   {
     public CompanyBasicInfoModel(long id, string name, bool isActive)
@@ -285,34 +262,14 @@ public class CompanyController : Controller
 
     public string? LastName { get; set; }
     public string? MiddleName { get; set; }
-
-     
     public DateTime? DOB { get; set; }
     public Gender Gender { get; set; }
   }
 
 
 
-  public class CompanyViewModel
-  {
-    public CompanyViewModel(long id, string name, string? description, bool isDeleted, byte[] rowVer)
-    {
-      Id = id;
-      Name = name;
-      Description = description;
-      IsDeleted = isDeleted;
-      RowVer = rowVer;
-      Person = new List<Core.PersonAggregate.Person>();
-    }
-    public long Id { get; set; }
-    public string Name { get; set; }
-    public string? Description { get; set; }
-    public bool IsDeleted { get; set; }
-    public byte[] RowVer { get; set; }
-    //public List<PersonViewModel>
-    public List<Core.PersonAggregate.Person> Person { get; set; }
-
-  }
+  //public List<PersonViewModel>
+  public record CompanyViewModel(long Id, string Name, string? Description, bool IsDeleted, byte[]? RowVer);
 
 
   #region Helpers

@@ -12,7 +12,6 @@ namespace TYProject.Core.PersonAggregate;
 
 public partial class Person : EntityBase<long>, IAggregateRoot
 {
-
   public long CompanyId { get; set; }
 
   public string FirstName { get; set; }
@@ -21,9 +20,9 @@ public partial class Person : EntityBase<long>, IAggregateRoot
 
   public string MiddleName { get; set; }
 
-  public DateTime Dob { get; set; }
+  public DateTime DOB { get; set; }
 
-  public string Gender { get; set; }
+  public string GENDER { get; set; }
 
   public string Type { get; set; }
 
@@ -41,22 +40,23 @@ public partial class Person : EntityBase<long>, IAggregateRoot
 
   public virtual Company Company { get; set; }
 
+  public virtual ICollection<Coupon> Coupons { get; } = new List<Coupon>();
+
   public virtual Login CreatedByNavigation { get; set; }
 
   public virtual Login LastModifiedByNavigation { get; set; }
+}
 
-  //public enum Gender
-  //{
-  //  Male,
-  //  Female,
-  //  Other
-  //}
+public enum Gender
+{
+  Male,
+  Female,
+  Other
+}
 
-  //public enum Type
-  //{
-  //  Employee,
-  //  Admin,
-  //  Manager,
-  //}
-
+public enum Type
+{
+  Employee,
+  Admin,
+  Manager,
 }

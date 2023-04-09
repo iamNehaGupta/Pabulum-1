@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using TYProject.Core.CompanyAggregate;
 using TYProject.Core.PersonAggregate;
 using TYProject.Core.ContactAggregate;
+using TYProject.Core.CouponAggregate;
+using TYProject.Core.LoginAggregate;
 
 namespace TYProject.Infrastructure.Data;
 
@@ -23,12 +25,17 @@ public class AppDbContext : DbContext
 
   public DbSet<ToDoItem> ToDoItems => Set<ToDoItem>();
   public DbSet<Project> Projects => Set<Project>();
-  public DbSet<Contributor> Contributors => Set<Contributor>(); 
+  public DbSet<Contributor> Contributors => Set<Contributor>();
 
-  public DbSet<Company> Companies => Set<Company>();
-  public DbSet<Person> People => Set<Person>();
+  public virtual DbSet<Company> Companies { get; set; }
 
-  public DbSet<Contact> Contacts => Set<Contact>();
+  public virtual DbSet<Contact> Contacts { get; set; }
+
+  public virtual DbSet<Coupon> Coupons { get; set; }
+
+  public virtual DbSet<Login> Logins { get; set; }
+
+  public virtual DbSet<Person> People { get; set; }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

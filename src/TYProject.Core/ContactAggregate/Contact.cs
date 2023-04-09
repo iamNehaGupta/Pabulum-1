@@ -10,12 +10,13 @@ using TYProject.SharedKernel.Interfaces;
 
 namespace TYProject.Core.ContactAggregate;
 
-public partial class Contact: EntityBase, IAggregateRoot  
+public partial class Contact: IAggregateRoot  
 {
-
+  public long ID { get; set; }
   public string Name { get; set; }
 
   public string Email { get; set; }
 
   public string Description { get; set; }
+
 }

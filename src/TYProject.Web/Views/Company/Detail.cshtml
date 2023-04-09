@@ -5,12 +5,12 @@
     # console.log('Inside tempate', data) #
     <tr data-bind="click: showDetail" data-uid="#: uid #">
         <td>#: data.id #</td>
-        <td>#: data.company id #</td>
-        <td><span>#: data.first name #</span></td>
-       <td><span>#: data.last name #</span></td>
-       <td><span>#: data.middle name #</span></td>
+        <td>#: data.companyid #</td>
+        <td><span>#: data.firstName #</span></td>
+       <td><span>#: data.lastName #</span></td>
+       <td><span>#: data.middleName #</span></td>
        <td><span>#: data.gender #</span></td>
-       <td><span>#: data.dob #</span></td>
+       <td><span>#: kendo.toString(new Date(data.dob), "F") #</span></td>
       
         <td>
             <button title="Edit" class="btn btn-light"><i class="fa-solid fa-pencil"></i></button>
@@ -62,7 +62,7 @@
                     <div class="col"></div>
                     <div class="col-auto">
                         <span class="">Version</span>
-                        <span>@string.Join("", Model.RowVer)</span>
+                        <span>@(Model.RowVer is null ? string.Empty : string.Join("", Model.RowVer))</span>
                     </div>
                 </div>
             </div>
@@ -167,11 +167,11 @@
 
             
                 global.PersonIndexContent = {};
-                global.PersonIndexContext.model = pageModel;
-                global.PersonIndexContext.showSpinner = showSpinner;
-                global.PersonIndexContext.hideSpinner = hideSpinner;
-                global.PersonIndexContext.detail = detail;
-                global.PersonIndexContext.openWindow = openWindow;
+                //global.PersonIndexContext.model = pageModel;
+                //global.PersonIndexContext.showSpinner = showSpinner;
+                //global.PersonIndexContext.hideSpinner = hideSpinner;
+                //global.PersonIndexContext.detail = detail;
+                //global.PersonIndexContext.openWindow = openWindow;
 
                 var PersonPageModel = kendo.data.Model.define({
                     fields: {
@@ -195,10 +195,10 @@
                 var PersonModel = kendo.data.Model.define({
                     fields: {
                         Id: { type: 'number', default: 0 },
-                        Company Id: { type: 'number', default: 0 },
-                        First Name: { type: 'string', default: '' },
-                        Last Name: { type: 'string', default: '' },
-                         Middle Name: { type: 'string', default: '' },
+                        CompanyId: { type: 'number', default: 0 },
+                        FirstName: { type: 'string', default: '' },
+                        LastName: { type: 'string', default: '' },
+                        MiddleName: { type: 'string', default: '' },
                         Gender : { type: 'Gender', default: '' },
                         DOB : { type: 'DOB', default: '' },
                         IsActive: { type: 'boolean', default: false }
@@ -232,7 +232,7 @@
 
                 async function get() {
 
-                    var url = global.Main.rootUrl + "/Person/AllPeople";
+                    var url = global.Main.rootUrl + "/Person/AllPeople?companyId=" + '@Model.Id';
 
                     try {
 
@@ -274,7 +274,7 @@
 
                 $(document).ready(async function onPersonIndexReady() {
 
-                    pageModel = new companyPageModel();
+                    pageModel = new PersonPageModel();
 
                     $("#showSpinnerbtn").on('click', function showSpinnerHandler() { showSpinner(); });
                     $("#hideSpinnerbtn").on('click', function hideSpinnerHandler() { hideSpinner(); });

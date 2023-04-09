@@ -15,20 +15,16 @@ internal class CouponConfiguration : IEntityTypeConfiguration<Coupon>
   {
     entity.ToTable("Coupon");
 
-    entity.HasNoKey();
-
+    entity.Property(e => e.Code).IsRequired();
     entity.Property(e => e.ExpiryDate).HasColumnType("datetime");
-    entity.Property(e => e.Id)
-        .ValueGeneratedOnAdd()
-        .HasColumnName("ID");
     entity.Property(e => e.PurchasedOn).HasColumnType("datetime");
     entity.Property(e => e.UtilizedOn).HasColumnType("datetime");
 
-    entity.HasOne(d => d.Company).WithMany()
+    entity.HasOne(d => d.Company).WithMany(p => p.Coupons)
         .HasForeignKey(d => d.CompanyId)
         .OnDelete(DeleteBehavior.ClientSetNull);
 
-    entity.HasOne(d => d.Person).WithMany()
+    entity.HasOne(d => d.Person).WithMany(p => p.Coupons)
         .HasForeignKey(d => d.PersonId)
         .OnDelete(DeleteBehavior.ClientSetNull);
   }

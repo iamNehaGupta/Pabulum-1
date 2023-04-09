@@ -46,7 +46,12 @@ public class ContactController : Controller
 
     try
     {
-      var model = new Contact(contact.Name, contact.Email, contact.Description);
+      var model = new Contact()
+      {
+        Name = contact.Name,
+        Email = contact.Email,
+        Description = contact.Description
+      };
       var data = context.Contacts.AddAsync(model);
 
       await context.SaveChangesAsync();

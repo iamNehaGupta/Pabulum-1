@@ -13,7 +13,6 @@ using TYProject.SharedKernel.Interfaces;
 namespace TYProject.Core.LoginAggregate;
 public partial class Login : EntityBase<long>, IAggregateRoot
 {
-
   public string UserName { get; set; }
 
   public string Password { get; set; }
@@ -28,9 +27,9 @@ public partial class Login : EntityBase<long>, IAggregateRoot
 
   public byte[] RowVer { get; set; }
 
-  public virtual ICollection<Company> CompanyCreatedByNavigation { get; } = new List<Company>();
+  public virtual ICollection<Company> CompanyCreatedByNavigations { get; } = new List<Company>();
 
-  public virtual ICollection<Company> CompanyLastModifiedByNavigation { get; } = new List<Company>();
+  public virtual ICollection<Company> CompanyLastModifiedByNavigations { get; } = new List<Company>();
 
   public virtual Login CreatedByNavigation { get; set; }
 
@@ -40,7 +39,7 @@ public partial class Login : EntityBase<long>, IAggregateRoot
 
   public virtual Login LastModifiedByNavigation { get; set; }
 
-  public virtual ICollection<Person> PersonCreatedByNavigation { get; } = new List<Person>();
+  public virtual ICollection<Person> PersonCreatedByNavigations { get; } = new List<Person>();
 
-  public virtual ICollection<Person> PersonLastModifiedByNavigation { get; } = new List<Person>();
+  public virtual ICollection<Person> PersonLastModifiedByNavigations { get; } = new List<Person>();
 }
