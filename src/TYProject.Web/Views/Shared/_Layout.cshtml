@@ -21,9 +21,12 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TYProject.Web</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/css/logo.jpg" width="150" height="45" class="d-inline-block align-top" alt="">
+                
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,7 +39,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="Index">Company</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="ContactIndex">Contact</a>
+                        </li>
+                       
                     </ul>
+                       <ul>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark border border-primary" asp-area="" asp-controller="Register" asp-action="RegisterIndex">Register</a>
+                        </li></ul>
+                    
                 </div>
             </div>
         </nav>
@@ -48,9 +60,10 @@
     </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Today.Year - TYProject.Web
+           <b>&copy; Copyright @DateTime.Now.Year - All Rights Reserved.</b>
         </div>
     </footer>
+    <div class="float-md-end mt-4">@DateTime.Now</div>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script type="text/javascript">

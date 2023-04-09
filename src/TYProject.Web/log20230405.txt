@@ -1,0 +1,936 @@
+2023-04-05 11:51:22.529 +05:30 [INF] Registered 5 endpoints in 893 milliseconds.
+2023-04-05 11:51:23.398 +05:30 [INF] User profile is available. Using 'C:\Users\Neha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-05 11:51:26.778 +05:30 [INF] Executed DbCommand (203ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-05 11:51:27.457 +05:30 [INF] Executed DbCommand (648ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-05 11:51:28.101 +05:30 [ERR] Failed executing DbCommand (95ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-05 11:51:28.146 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:7fead013-6f00-4ea9-9f2e-4716e20d7c0c
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:7fead013-6f00-4ea9-9f2e-4716e20d7c0c
+Error Number:208,State:1,Class:16
+2023-04-05 11:51:28.158 +05:30 [ERR] An error occurred seeding the DB. Invalid object name 'ToDoItems'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method455(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at TYProject.Web.SeedData.Initialize(IServiceProvider serviceProvider) in C:\Pabulum\Pabulum-1\src\TYProject.Web\SeedData.cs:line 35
+   at Program.<Main>$(String[] args) in C:\Pabulum\Pabulum-1\src\TYProject.Web\Program.cs:line 97
+ClientConnectionId:7fead013-6f00-4ea9-9f2e-4716e20d7c0c
+Error Number:208,State:1,Class:16
+2023-04-05 11:51:28.430 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-05 11:51:28.430 +05:30 [INF] Hosting environment: Development
+2023-04-05 11:51:28.430 +05:30 [INF] Content root path: C:\Pabulum\Pabulum-1\src\TYProject.Web
+2023-04-05 11:51:28.467 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-05 11:51:28.668 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-04-05 11:51:28.715 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 11:51:28.744 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-05 11:51:28.767 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:51:29.729 +05:30 [INF] Executed ViewResult - view Index executed in 960.0205ms.
+2023-04-05 11:51:29.736 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 990.3559ms
+2023-04-05 11:51:29.737 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 11:51:29.836 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 1374.5427ms
+2023-04-05 11:51:29.880 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/TYProject.Web.styles.css?v=DnQD8rBfRTgHB1Qav2fhUdTwlXE4pCk56iXP6SfgRrc - -
+2023-04-05 11:51:29.889 +05:30 [INF] The file /TYProject.Web.styles.css was not modified
+2023-04-05 11:51:29.891 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/TYProject.Web.styles.css?v=DnQD8rBfRTgHB1Qav2fhUdTwlXE4pCk56iXP6SfgRrc - - - 304 - text/css 11.4369ms
+2023-04-05 11:51:30.012 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:51:30.018 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 5.4864ms
+2023-04-05 11:51:30.165 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:51:30.343 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 177.4018ms
+2023-04-05 11:51:42.488 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - -
+2023-04-05 11:51:42.500 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 11:51:42.504 +05:30 [INF] Route matched with {action = "RegisterIndex", controller = "Register", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterIndex() on controller TYProject.Web.Controllers.RegisterController (TYProject.Web).
+2023-04-05 11:51:42.509 +05:30 [INF] Executing ViewResult, running view RegisterIndex.
+2023-04-05 11:51:42.541 +05:30 [INF] Executed ViewResult - view RegisterIndex executed in 34.4807ms.
+2023-04-05 11:51:42.542 +05:30 [INF] Executed action TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web) in 37.8263ms
+2023-04-05 11:51:42.542 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 11:51:42.548 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - - - 200 - text/html;+charset=utf-8 59.3006ms
+2023-04-05 11:51:42.609 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:51:42.611 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.8126ms
+2023-04-05 11:51:42.618 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/css/register.jpg - -
+2023-04-05 11:51:42.619 +05:30 [INF] The file /css/register.jpg was not modified
+2023-04-05 11:51:42.620 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/css/register.jpg - - - 304 - image/jpeg 2.6996ms
+2023-04-05 11:51:42.628 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:51:42.680 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.5304ms
+2023-04-05 11:52:17.684 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:52:17.686 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7216ms
+2023-04-05 11:52:29.938 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:52:29.940 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7557ms
+2023-04-05 11:52:32.908 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:52:32.912 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 4.1590ms
+2023-04-05 11:52:34.823 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-05 11:52:34.826 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 11:52:34.826 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-05 11:52:34.829 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:52:34.837 +05:30 [INF] Executed ViewResult - view Index executed in 9.5874ms.
+2023-04-05 11:52:34.837 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 10.8503ms
+2023-04-05 11:52:34.837 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 11:52:34.840 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 16.7453ms
+2023-04-05 11:52:34.883 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:52:34.885 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.6467ms
+2023-04-05 11:52:35.002 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:52:35.039 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.0136ms
+2023-04-05 11:52:35.823 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Contact/ContactIndex - -
+2023-04-05 11:52:35.825 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.ContactController.ContactIndex (TYProject.Web)'
+2023-04-05 11:52:35.830 +05:30 [INF] Route matched with {action = "ContactIndex", controller = "Contact", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ContactIndex() on controller TYProject.Web.Controllers.ContactController (TYProject.Web).
+2023-04-05 11:52:35.833 +05:30 [INF] Executing ViewResult, running view ContactIndex.
+2023-04-05 11:52:35.851 +05:30 [INF] Executed ViewResult - view ContactIndex executed in 19.0398ms.
+2023-04-05 11:52:35.851 +05:30 [INF] Executed action TYProject.Web.Controllers.ContactController.ContactIndex (TYProject.Web) in 20.5439ms
+2023-04-05 11:52:35.851 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.ContactController.ContactIndex (TYProject.Web)'
+2023-04-05 11:52:35.854 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Contact/ContactIndex - - - 200 - text/html;+charset=utf-8 31.1564ms
+2023-04-05 11:52:35.894 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:52:35.896 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.6830ms
+2023-04-05 11:52:35.903 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:52:36.007 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 103.7819ms
+2023-04-05 11:52:46.203 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/action_page.php?Name=kunal&Email=kunal123%40gmail.com&Message=kunal+is+the+name - -
+2023-04-05 11:52:46.209 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/action_page.php?Name=kunal&Email=kunal123%40gmail.com&Message=kunal+is+the+name - - - 404 - - 6.4773ms
+2023-04-05 11:52:51.445 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-05 11:52:51.446 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 11:52:51.447 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-05 11:52:51.447 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:52:51.454 +05:30 [INF] Executed ViewResult - view Index executed in 6.8146ms.
+2023-04-05 11:52:51.454 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 7.549ms
+2023-04-05 11:52:51.455 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 11:52:51.458 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 12.3232ms
+2023-04-05 11:52:51.496 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:52:51.498 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.6475ms
+2023-04-05 11:52:51.622 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:52:51.672 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.7887ms
+2023-04-05 11:52:52.481 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-05 11:52:52.483 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:52:52.484 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:52:52.487 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:52:52.496 +05:30 [INF] Executed ViewResult - view Index executed in 10.446ms.
+2023-04-05 11:52:52.496 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 11.6419ms
+2023-04-05 11:52:52.496 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:52:52.500 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 18.9237ms
+2023-04-05 11:52:52.527 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:52:52.527 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:52:52.529 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.2571ms
+2023-04-05 11:52:52.575 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.5606ms
+2023-04-05 11:52:52.656 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:52:52.657 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:52:52.659 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:52:52.890 +05:30 [INF] Executed DbCommand (56ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:52:52.915 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:52:53.077 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 418.6147ms
+2023-04-05 11:52:53.078 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:52:53.084 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 427.2658ms
+2023-04-05 11:52:54.961 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - -
+2023-04-05 11:52:54.966 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-05 11:52:54.969 +05:30 [INF] Route matched with {action = "Create", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:52:54.976 +05:30 [INF] Executing PartialViewResult, running view Create.
+2023-04-05 11:52:55.053 +05:30 [INF] Executed PartialViewResult - view null executed in 79.948ms.
+2023-04-05 11:52:55.054 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Create (TYProject.Web) in 84.964ms
+2023-04-05 11:52:55.054 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-05 11:52:55.056 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - - - 200 - text/html;+charset=utf-8 95.0361ms
+2023-04-05 11:52:55.100 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:52:55.101 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 0.8810ms
+2023-04-05 11:52:55.109 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:52:55.155 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.1224ms
+2023-04-05 11:52:59.688 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Company/Create?companyId= application/x-www-form-urlencoded 182
+2023-04-05 11:52:59.690 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-05 11:52:59.789 +05:30 [INF] Route matched with {action = "Create", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(CompanyViewModel) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:52:59.850 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Create (TYProject.Web) in 60.6975ms
+2023-04-05 11:52:59.851 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-05 11:52:59.852 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Could not create an instance of type 'TYProject.Web.Controllers.CompanyController+CompanyViewModel'. Model bound complex types must not be abstract or value types and must have a parameterless constructor. Record types must have a single primary constructor. Alternatively, give the 'payload' parameter a non-null default value.
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinder.CreateModel(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinder.BindModelCoreAsync(ModelBindingContext bindingContext, Int32 propertyData)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-04-05 11:52:59.916 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Company/Create?companyId= application/x-www-form-urlencoded 182 - 500 - text/html;+charset=utf-8 227.6920ms
+2023-04-05 11:52:59.946 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:52:59.947 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:52:59.949 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.9268ms
+2023-04-05 11:52:59.998 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.5310ms
+2023-04-05 11:53:03.461 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - -
+2023-04-05 11:53:03.462 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-05 11:53:03.462 +05:30 [INF] Route matched with {action = "Create", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:53:03.464 +05:30 [INF] Executing PartialViewResult, running view Create.
+2023-04-05 11:53:03.476 +05:30 [INF] Executed PartialViewResult - view null executed in 12.156ms.
+2023-04-05 11:53:03.476 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Create (TYProject.Web) in 13.5546ms
+2023-04-05 11:53:03.476 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-05 11:53:03.479 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - - - 200 - text/html;+charset=utf-8 18.3697ms
+2023-04-05 11:53:03.506 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:53:03.508 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.9072ms
+2023-04-05 11:53:05.475 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:53:05.476 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.5684ms
+2023-04-05 11:53:12.340 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:53:12.341 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:53:12.342 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:53:12.357 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:53:12.362 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:53:12.363 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 21.3532ms
+2023-04-05 11:53:12.363 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:53:12.365 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 24.3879ms
+2023-04-05 11:53:13.863 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - -
+2023-04-05 11:53:13.864 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:53:13.877 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:53:14.075 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - -
+2023-04-05 11:53:14.076 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:53:14.076 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:53:14.088 +05:30 [INF] Executed DbCommand (63ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[Id] = @__p_0
+2023-04-05 11:53:14.104 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[Id] = @__p_0
+2023-04-05 11:53:14.241 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-05 11:53:14.242 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-05 11:53:14.260 +05:30 [INF] Executed ViewResult - view Detail executed in 19.1607ms.
+2023-04-05 11:53:14.260 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 382.8256ms
+2023-04-05 11:53:14.260 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:53:14.260 +05:30 [INF] Executed ViewResult - view Detail executed in 19.5759ms.
+2023-04-05 11:53:14.260 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 184.6682ms
+2023-04-05 11:53:14.261 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:53:14.262 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - - - 200 - text/html;+charset=utf-8 399.6012ms
+2023-04-05 11:53:14.263 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - - - 200 - text/html;+charset=utf-8 187.7191ms
+2023-04-05 11:53:14.339 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:53:14.339 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:53:14.340 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.1754ms
+2023-04-05 11:53:14.387 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.4011ms
+2023-04-05 11:53:18.459 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=2 - -
+2023-04-05 11:53:18.461 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:53:18.466 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-05 11:53:18.473 +05:30 [INF] Executing ViewResult, running view Create.
+2023-04-05 11:53:18.540 +05:30 [INF] Executed ViewResult - view Create executed in 68.3464ms.
+2023-04-05 11:53:18.540 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 73.6318ms
+2023-04-05 11:53:18.540 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:53:18.543 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=2 - - - 200 - text/html;+charset=utf-8 83.6627ms
+2023-04-05 11:53:18.588 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:53:18.589 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:53:18.589 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.4850ms
+2023-04-05 11:53:18.649 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.4948ms
+2023-04-05 11:53:49.164 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Person/Create?companyId=2 application/x-www-form-urlencoded 273
+2023-04-05 11:53:49.168 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:53:49.179 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PersonViewModel) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-05 11:53:49.598 +05:30 [INF] Executed DbCommand (91ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (DbType = DateTime2), @p3='?' (DbType = DateTime2), @p4='?' (Size = 250), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = Int64), @p8='?' (DbType = DateTime2), @p9='?' (Size = 250), @p10='?' (Size = 250), @p11='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Person] ([CompanyId], [CreatedBy], [CreatedOnDate], [DOB], [Firstname], [Gender], [IsDeleted], [LastModifiedBy], [LastModifiedOnDate], [Lastname], [Middlename], [Type])
+OUTPUT INSERTED.[Id], INSERTED.[RowVer]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2023-04-05 11:53:49.662 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult'.
+2023-04-05 11:53:49.665 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 486.3213ms
+2023-04-05 11:53:49.666 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:53:49.666 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Person/Create?companyId=2 application/x-www-form-urlencoded 273 - 200 - application/json;+charset=utf-8 501.7295ms
+2023-04-05 11:53:52.413 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=2 - -
+2023-04-05 11:53:52.414 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:53:52.414 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-05 11:53:52.415 +05:30 [INF] Executing ViewResult, running view Create.
+2023-04-05 11:53:52.423 +05:30 [INF] Executed ViewResult - view Create executed in 7.6676ms.
+2023-04-05 11:53:52.423 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 8.6645ms
+2023-04-05 11:53:52.423 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:53:52.427 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=2 - - - 200 - text/html;+charset=utf-8 14.5997ms
+2023-04-05 11:53:52.456 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:53:52.458 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.5977ms
+2023-04-05 11:53:57.940 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-05 11:53:57.942 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:53:57.942 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:53:57.943 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:53:57.949 +05:30 [INF] Executed ViewResult - view Index executed in 5.9493ms.
+2023-04-05 11:53:57.949 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 6.7129ms
+2023-04-05 11:53:57.949 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:53:57.953 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 13.1821ms
+2023-04-05 11:53:57.996 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:53:57.996 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:53:57.997 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.8981ms
+2023-04-05 11:53:58.058 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 61.9647ms
+2023-04-05 11:53:58.135 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:53:58.135 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:53:58.135 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:53:58.142 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:53:58.142 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:53:58.143 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 7.3679ms
+2023-04-05 11:53:58.143 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:53:58.143 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 8.4714ms
+2023-04-05 11:53:59.368 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - -
+2023-04-05 11:53:59.369 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:53:59.369 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:53:59.378 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[Id] = @__p_0
+2023-04-05 11:53:59.380 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-05 11:53:59.386 +05:30 [INF] Executed ViewResult - view Detail executed in 5.8347ms.
+2023-04-05 11:53:59.386 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 16.5775ms
+2023-04-05 11:53:59.386 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:53:59.389 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - - - 200 - text/html;+charset=utf-8 21.5107ms
+2023-04-05 11:53:59.430 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:53:59.430 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:53:59.433 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.3717ms
+2023-04-05 11:53:59.484 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.2362ms
+2023-04-05 11:54:01.046 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=2 - -
+2023-04-05 11:54:01.047 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:54:01.047 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-05 11:54:01.048 +05:30 [INF] Executing ViewResult, running view Create.
+2023-04-05 11:54:01.055 +05:30 [INF] Executed ViewResult - view Create executed in 6.4393ms.
+2023-04-05 11:54:01.055 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 7.641ms
+2023-04-05 11:54:01.055 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:54:01.058 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=2 - - - 200 - text/html;+charset=utf-8 12.0265ms
+2023-04-05 11:54:01.092 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:01.092 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:01.095 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.9755ms
+2023-04-05 11:54:01.163 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 70.8674ms
+2023-04-05 11:54:06.777 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-05 11:54:06.778 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:54:06.778 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:06.779 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:54:06.789 +05:30 [INF] Executed ViewResult - view Index executed in 10.2683ms.
+2023-04-05 11:54:06.790 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 11.3867ms
+2023-04-05 11:54:06.790 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:54:06.793 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 16.0904ms
+2023-04-05 11:54:06.815 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:06.816 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 0.9499ms
+2023-04-05 11:54:06.821 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:06.877 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.8352ms
+2023-04-05 11:54:06.941 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:54:06.942 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:54:06.942 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:06.948 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:54:06.948 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:54:06.949 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 6.7694ms
+2023-04-05 11:54:06.949 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:54:06.949 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 7.9390ms
+2023-04-05 11:54:08.034 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - -
+2023-04-05 11:54:08.035 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:54:08.035 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:08.043 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[Id] = @__p_0
+2023-04-05 11:54:08.044 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-05 11:54:08.049 +05:30 [INF] Executed ViewResult - view Detail executed in 5.3659ms.
+2023-04-05 11:54:08.050 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 14.2475ms
+2023-04-05 11:54:08.050 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:54:08.054 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - - - 200 - text/html;+charset=utf-8 20.2814ms
+2023-04-05 11:54:08.086 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:08.088 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:08.088 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7434ms
+2023-04-05 11:54:08.145 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.0504ms
+2023-04-05 11:54:08.642 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:08.644 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.6440ms
+2023-04-05 11:54:08.850 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:54:08.850 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:54:08.850 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:08.856 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:54:08.856 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:54:08.856 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 5.8836ms
+2023-04-05 11:54:08.857 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:54:08.857 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 7.0203ms
+2023-04-05 11:54:10.109 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - -
+2023-04-05 11:54:10.110 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-05 11:54:10.110 +05:30 [INF] Route matched with {action = "Create", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:10.111 +05:30 [INF] Executing PartialViewResult, running view Create.
+2023-04-05 11:54:10.116 +05:30 [INF] Executed PartialViewResult - view null executed in 5.3603ms.
+2023-04-05 11:54:10.116 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Create (TYProject.Web) in 5.9719ms
+2023-04-05 11:54:10.116 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-05 11:54:10.119 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - - - 200 - text/html;+charset=utf-8 10.5761ms
+2023-04-05 11:54:10.148 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:10.148 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:10.149 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.5532ms
+2023-04-05 11:54:10.215 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 67.1905ms
+2023-04-05 11:54:15.626 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-05 11:54:15.628 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:54:15.628 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:15.629 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:54:15.634 +05:30 [INF] Executed ViewResult - view Index executed in 5.5478ms.
+2023-04-05 11:54:15.634 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 6.0139ms
+2023-04-05 11:54:15.634 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:54:15.637 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 10.5313ms
+2023-04-05 11:54:15.654 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:15.694 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.8759ms
+2023-04-05 11:54:15.749 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:15.750 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.0400ms
+2023-04-05 11:54:15.818 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:54:15.819 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:54:15.819 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:15.824 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:54:15.824 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:54:15.824 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 5.1038ms
+2023-04-05 11:54:15.825 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:54:15.825 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 6.4466ms
+2023-04-05 11:54:18.112 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - -
+2023-04-05 11:54:18.113 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:54:18.113 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:18.121 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[Id] = @__p_0
+2023-04-05 11:54:18.122 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-05 11:54:18.126 +05:30 [INF] Executed ViewResult - view Detail executed in 4.197ms.
+2023-04-05 11:54:18.126 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 12.7464ms
+2023-04-05 11:54:18.126 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:54:18.130 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - - - 200 - text/html;+charset=utf-8 18.1490ms
+2023-04-05 11:54:18.151 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:18.151 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:18.153 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.6792ms
+2023-04-05 11:54:18.200 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.3653ms
+2023-04-05 11:54:20.825 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=1 - -
+2023-04-05 11:54:20.827 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:54:20.827 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-05 11:54:20.828 +05:30 [INF] Executing ViewResult, running view Create.
+2023-04-05 11:54:20.834 +05:30 [INF] Executed ViewResult - view Create executed in 6.0911ms.
+2023-04-05 11:54:20.834 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 7.1379ms
+2023-04-05 11:54:20.834 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-05 11:54:20.838 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=1 - - - 200 - text/html;+charset=utf-8 12.5329ms
+2023-04-05 11:54:20.867 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:20.867 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:20.868 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.4412ms
+2023-04-05 11:54:20.934 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.7879ms
+2023-04-05 11:54:43.658 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-05 11:54:43.659 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 11:54:43.660 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-05 11:54:43.660 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:54:43.665 +05:30 [INF] Executed ViewResult - view Index executed in 4.6864ms.
+2023-04-05 11:54:43.665 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 5.3553ms
+2023-04-05 11:54:43.665 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 11:54:43.668 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 9.6794ms
+2023-04-05 11:54:43.698 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:43.766 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 68.5975ms
+2023-04-05 11:54:43.843 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:43.844 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.3038ms
+2023-04-05 11:54:54.771 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-05 11:54:54.772 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:54:54.773 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:54.773 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:54:54.780 +05:30 [INF] Executed ViewResult - view Index executed in 6.2822ms.
+2023-04-05 11:54:54.780 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 7.0239ms
+2023-04-05 11:54:54.780 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:54:54.784 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 13.4420ms
+2023-04-05 11:54:54.809 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:54.812 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:54.814 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.5217ms
+2023-04-05 11:54:54.868 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.3098ms
+2023-04-05 11:54:54.972 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:54:54.973 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:54:54.973 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:54.980 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:54:54.980 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:54:54.981 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 8.1567ms
+2023-04-05 11:54:54.981 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:54:54.982 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 9.7417ms
+2023-04-05 11:54:58.757 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - -
+2023-04-05 11:54:58.759 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:54:58.759 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:54:58.765 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[Id] = @__p_0
+2023-04-05 11:54:58.765 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-05 11:54:58.768 +05:30 [INF] Executed ViewResult - view Detail executed in 3.2598ms.
+2023-04-05 11:54:58.769 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 9.8ms
+2023-04-05 11:54:58.769 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:54:58.772 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - - - 200 - text/html;+charset=utf-8 15.0290ms
+2023-04-05 11:54:58.786 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:54:58.786 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:54:58.788 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.5470ms
+2023-04-05 11:54:58.829 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.3439ms
+2023-04-05 11:55:01.234 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:55:01.236 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.0528ms
+2023-04-05 11:55:03.205 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - -
+2023-04-05 11:55:03.206 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:55:03.207 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:55:03.215 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[Id] = @__p_0
+2023-04-05 11:55:03.216 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-05 11:55:03.221 +05:30 [INF] Executed ViewResult - view Detail executed in 5.2487ms.
+2023-04-05 11:55:03.221 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 14.5217ms
+2023-04-05 11:55:03.221 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-05 11:55:03.224 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - - - 200 - text/html;+charset=utf-8 19.0015ms
+2023-04-05 11:55:03.250 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:55:03.250 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:55:03.253 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.4220ms
+2023-04-05 11:55:03.309 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.9132ms
+2023-04-05 11:55:11.905 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - -
+2023-04-05 11:55:11.909 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 11:55:11.910 +05:30 [INF] Route matched with {action = "RegisterIndex", controller = "Register", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterIndex() on controller TYProject.Web.Controllers.RegisterController (TYProject.Web).
+2023-04-05 11:55:11.911 +05:30 [INF] Executing ViewResult, running view RegisterIndex.
+2023-04-05 11:55:11.915 +05:30 [INF] Executed ViewResult - view RegisterIndex executed in 4.5679ms.
+2023-04-05 11:55:11.915 +05:30 [INF] Executed action TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web) in 5.6601ms
+2023-04-05 11:55:11.916 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 11:55:11.920 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - - - 200 - text/html;+charset=utf-8 14.4469ms
+2023-04-05 11:55:11.951 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:55:12.001 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.7500ms
+2023-04-05 11:55:12.081 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:55:12.082 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.0426ms
+2023-04-05 11:55:18.214 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:55:18.216 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.5828ms
+2023-04-05 11:55:19.990 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Contact/ContactIndex - -
+2023-04-05 11:55:19.994 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.ContactController.ContactIndex (TYProject.Web)'
+2023-04-05 11:55:19.994 +05:30 [INF] Route matched with {action = "ContactIndex", controller = "Contact", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ContactIndex() on controller TYProject.Web.Controllers.ContactController (TYProject.Web).
+2023-04-05 11:55:19.995 +05:30 [INF] Executing ViewResult, running view ContactIndex.
+2023-04-05 11:55:20.001 +05:30 [INF] Executed ViewResult - view ContactIndex executed in 5.4121ms.
+2023-04-05 11:55:20.001 +05:30 [INF] Executed action TYProject.Web.Controllers.ContactController.ContactIndex (TYProject.Web) in 6.3093ms
+2023-04-05 11:55:20.001 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.ContactController.ContactIndex (TYProject.Web)'
+2023-04-05 11:55:20.004 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Contact/ContactIndex - - - 200 - text/html;+charset=utf-8 13.8942ms
+2023-04-05 11:55:20.030 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:55:20.030 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:55:20.032 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.2534ms
+2023-04-05 11:55:20.100 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 70.5371ms
+2023-04-05 11:55:21.985 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - -
+2023-04-05 11:55:21.986 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 11:55:21.987 +05:30 [INF] Route matched with {action = "RegisterIndex", controller = "Register", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterIndex() on controller TYProject.Web.Controllers.RegisterController (TYProject.Web).
+2023-04-05 11:55:21.987 +05:30 [INF] Executing ViewResult, running view RegisterIndex.
+2023-04-05 11:55:21.993 +05:30 [INF] Executed ViewResult - view RegisterIndex executed in 5.7099ms.
+2023-04-05 11:55:21.993 +05:30 [INF] Executed action TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web) in 6.3215ms
+2023-04-05 11:55:21.993 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 11:55:21.997 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - - - 200 - text/html;+charset=utf-8 11.4304ms
+2023-04-05 11:55:22.027 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:55:22.093 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.1403ms
+2023-04-05 11:55:22.164 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:55:22.165 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.1061ms
+2023-04-05 11:55:25.970 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-05 11:55:25.971 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:55:25.971 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:55:25.972 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 11:55:25.977 +05:30 [INF] Executed ViewResult - view Index executed in 5.3958ms.
+2023-04-05 11:55:25.978 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 6.0732ms
+2023-04-05 11:55:25.978 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 11:55:25.982 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 11.7343ms
+2023-04-05 11:55:26.010 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 11:55:26.010 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 11:55:26.012 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.8688ms
+2023-04-05 11:55:26.072 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.5367ms
+2023-04-05 11:55:26.157 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:55:26.157 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:55:26.157 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:55:26.161 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:55:26.162 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:55:26.162 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 5.0295ms
+2023-04-05 11:55:26.162 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:55:26.163 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 5.8017ms
+2023-04-05 11:55:29.854 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:55:29.854 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:55:29.854 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:55:29.857 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:55:29.857 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:55:29.858 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 3.459ms
+2023-04-05 11:55:29.858 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:55:29.858 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 4.5727ms
+2023-04-05 11:55:30.772 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 11:55:30.773 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:55:30.773 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 11:55:30.776 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 11:55:30.776 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 11:55:30.777 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 3.864ms
+2023-04-05 11:55:30.777 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 11:55:30.777 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 5.4211ms
+2023-04-05 12:02:31.775 +05:30 [INF] Registered 5 endpoints in 236 milliseconds.
+2023-04-05 12:02:31.903 +05:30 [INF] User profile is available. Using 'C:\Users\Neha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-05 12:02:33.086 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-05 12:02:33.139 +05:30 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-05 12:02:33.439 +05:30 [ERR] Failed executing DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-05 12:02:33.468 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:acc6af11-07cd-4b18-aea0-a370cf597ebb
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:acc6af11-07cd-4b18-aea0-a370cf597ebb
+Error Number:208,State:1,Class:16
+2023-04-05 12:02:33.477 +05:30 [ERR] An error occurred seeding the DB. Invalid object name 'ToDoItems'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method455(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at TYProject.Web.SeedData.Initialize(IServiceProvider serviceProvider) in C:\Pabulum\Pabulum-1\src\TYProject.Web\SeedData.cs:line 35
+   at Program.<Main>$(String[] args) in C:\Pabulum\Pabulum-1\src\TYProject.Web\Program.cs:line 97
+ClientConnectionId:acc6af11-07cd-4b18-aea0-a370cf597ebb
+Error Number:208,State:1,Class:16
+2023-04-05 12:02:33.592 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-05 12:02:33.592 +05:30 [INF] Hosting environment: Development
+2023-04-05 12:02:33.592 +05:30 [INF] Content root path: C:\Pabulum\Pabulum-1\src\TYProject.Web
+2023-04-05 12:02:33.609 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-05 12:02:33.720 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-04-05 12:02:33.758 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 12:02:33.772 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 12:02:33.790 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 12:02:33.974 +05:30 [INF] Executed ViewResult - view Index executed in 186.8777ms.
+2023-04-05 12:02:33.981 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 207.7726ms
+2023-04-05 12:02:33.982 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 12:02:34.043 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 435.0117ms
+2023-04-05 12:02:34.668 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:02:34.668 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:02:34.674 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 5.0723ms
+2023-04-05 12:02:34.699 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 12:02:34.702 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 12:02:34.705 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 12:02:34.708 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 40.3926ms
+2023-04-05 12:02:34.757 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/favicon.ico - -
+2023-04-05 12:02:34.762 +05:30 [INF] The file /favicon.ico was not modified
+2023-04-05 12:02:34.765 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/favicon.ico - - - 304 - image/x-icon 7.9803ms
+2023-04-05 12:02:34.793 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 12:02:34.805 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 12:02:34.880 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 175.3457ms
+2023-04-05 12:02:34.880 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 12:02:34.884 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 185.2288ms
+2023-04-05 12:02:36.966 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-05 12:02:36.969 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:02:36.973 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-05 12:02:36.978 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 12:02:37.000 +05:30 [INF] Executed ViewResult - view Index executed in 24.7546ms.
+2023-04-05 12:02:37.001 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 27.5433ms
+2023-04-05 12:02:37.001 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:02:37.007 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 41.3484ms
+2023-04-05 12:02:37.029 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:02:37.100 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 70.4787ms
+2023-04-05 12:02:37.224 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:02:37.226 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.2268ms
+2023-04-05 12:04:41.417 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - -
+2023-04-05 12:04:41.425 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 12:04:41.427 +05:30 [INF] Route matched with {action = "RegisterIndex", controller = "Register", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterIndex() on controller TYProject.Web.Controllers.RegisterController (TYProject.Web).
+2023-04-05 12:04:41.430 +05:30 [INF] Executing ViewResult, running view RegisterIndex.
+2023-04-05 12:04:41.487 +05:30 [INF] Executed ViewResult - view RegisterIndex executed in 58.2704ms.
+2023-04-05 12:04:41.487 +05:30 [INF] Executed action TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web) in 59.7339ms
+2023-04-05 12:04:41.487 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 12:04:41.505 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - - - 200 - text/html;+charset=utf-8 87.8070ms
+2023-04-05 12:04:41.526 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:04:41.609 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 82.2323ms
+2023-04-05 12:04:41.687 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:04:41.691 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 3.8977ms
+2023-04-05 12:04:45.522 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:04:45.525 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7016ms
+2023-04-05 12:04:57.394 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-05 12:04:57.396 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:04:57.397 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-05 12:04:57.399 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 12:04:57.404 +05:30 [INF] Executed ViewResult - view Index executed in 5.7288ms.
+2023-04-05 12:04:57.404 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 6.5843ms
+2023-04-05 12:04:57.404 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:04:57.406 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 11.8647ms
+2023-04-05 12:04:57.428 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:04:57.428 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:04:57.429 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.0837ms
+2023-04-05 12:04:57.467 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.7775ms
+2023-04-05 12:05:11.452 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-05 12:05:11.456 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:05:11.457 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-05 12:05:11.458 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 12:05:11.468 +05:30 [INF] Executed ViewResult - view Index executed in 9.3444ms.
+2023-04-05 12:05:11.468 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 10.8955ms
+2023-04-05 12:05:11.468 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:05:11.477 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 24.1321ms
+2023-04-05 12:05:11.499 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:05:11.499 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:05:11.501 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.1023ms
+2023-04-05 12:05:11.531 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.0398ms
+2023-04-05 12:29:38.610 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-05 12:29:38.614 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 12:29:38.614 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 12:29:38.622 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 12:29:38.633 +05:30 [INF] Executed ViewResult - view Index executed in 15.9299ms.
+2023-04-05 12:29:38.634 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 17.9356ms
+2023-04-05 12:29:38.634 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-05 12:29:38.639 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 29.0124ms
+2023-04-05 12:29:38.664 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:29:38.665 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:29:38.667 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.1656ms
+2023-04-05 12:29:38.733 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 68.3188ms
+2023-04-05 12:29:38.982 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-05 12:29:38.985 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 12:29:38.986 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-05 12:29:39.067 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-05 12:29:39.076 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.CompanyController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-05 12:29:39.083 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 97.1179ms
+2023-04-05 12:29:39.083 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-05 12:29:39.084 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 101.4114ms
+2023-04-05 12:29:40.576 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Contact/ContactIndex - -
+2023-04-05 12:29:40.582 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.ContactController.ContactIndex (TYProject.Web)'
+2023-04-05 12:29:40.587 +05:30 [INF] Route matched with {action = "ContactIndex", controller = "Contact", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ContactIndex() on controller TYProject.Web.Controllers.ContactController (TYProject.Web).
+2023-04-05 12:29:40.593 +05:30 [INF] Executing ViewResult, running view ContactIndex.
+2023-04-05 12:29:40.620 +05:30 [INF] Executed ViewResult - view ContactIndex executed in 31.3075ms.
+2023-04-05 12:29:40.621 +05:30 [INF] Executed action TYProject.Web.Controllers.ContactController.ContactIndex (TYProject.Web) in 33.113ms
+2023-04-05 12:29:40.621 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.ContactController.ContactIndex (TYProject.Web)'
+2023-04-05 12:29:40.625 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Contact/ContactIndex - - - 200 - text/html;+charset=utf-8 48.6661ms
+2023-04-05 12:29:40.665 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:29:40.667 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7177ms
+2023-04-05 12:29:40.667 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:29:40.736 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 69.6239ms
+2023-04-05 12:30:24.678 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-05 12:30:24.679 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:30:24.679 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-05 12:30:24.681 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 12:30:24.691 +05:30 [INF] Executed ViewResult - view Index executed in 11.1178ms.
+2023-04-05 12:30:24.691 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 11.9024ms
+2023-04-05 12:30:24.691 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:30:24.695 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 17.1418ms
+2023-04-05 12:30:24.740 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:30:24.743 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.6746ms
+2023-04-05 12:30:24.864 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:30:24.909 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.5147ms
+2023-04-05 12:30:38.339 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - -
+2023-04-05 12:30:38.345 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 12:30:38.345 +05:30 [INF] Route matched with {action = "RegisterIndex", controller = "Register", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterIndex() on controller TYProject.Web.Controllers.RegisterController (TYProject.Web).
+2023-04-05 12:30:38.349 +05:30 [INF] Executing ViewResult, running view RegisterIndex.
+2023-04-05 12:30:38.357 +05:30 [INF] Executed ViewResult - view RegisterIndex executed in 10.2605ms.
+2023-04-05 12:30:38.358 +05:30 [INF] Executed action TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web) in 12.0708ms
+2023-04-05 12:30:38.358 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 12:30:38.362 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - - - 200 - text/html;+charset=utf-8 22.9902ms
+2023-04-05 12:30:38.410 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:30:38.412 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.9604ms
+2023-04-05 12:30:38.520 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:30:38.564 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.1152ms
+2023-04-05 12:30:50.844 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex?Name=kunal&Email=kunal123%40gmail.com&Password=2211&Re-Type+Password=2211 - -
+2023-04-05 12:30:50.846 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 12:30:50.847 +05:30 [INF] Route matched with {action = "RegisterIndex", controller = "Register", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterIndex() on controller TYProject.Web.Controllers.RegisterController (TYProject.Web).
+2023-04-05 12:30:50.848 +05:30 [INF] Executing ViewResult, running view RegisterIndex.
+2023-04-05 12:30:50.858 +05:30 [INF] Executed ViewResult - view RegisterIndex executed in 9.8782ms.
+2023-04-05 12:30:50.858 +05:30 [INF] Executed action TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web) in 10.9519ms
+2023-04-05 12:30:50.858 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 12:30:50.862 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex?Name=kunal&Email=kunal123%40gmail.com&Password=2211&Re-Type+Password=2211 - - - 200 - text/html;+charset=utf-8 18.0531ms
+2023-04-05 12:30:50.909 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:30:50.910 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:30:50.911 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.0855ms
+2023-04-05 12:30:50.973 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.0538ms
+2023-04-05 12:30:59.107 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-05 12:30:59.109 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:30:59.109 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-05 12:30:59.110 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-05 12:30:59.119 +05:30 [INF] Executed ViewResult - view Index executed in 9.6784ms.
+2023-04-05 12:30:59.120 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 10.6227ms
+2023-04-05 12:30:59.120 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-05 12:30:59.123 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 16.1634ms
+2023-04-05 12:30:59.170 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:30:59.172 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.1024ms
+2023-04-05 12:30:59.303 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:30:59.349 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.5736ms
+2023-04-05 12:31:03.027 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - -
+2023-04-05 12:31:03.028 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 12:31:03.029 +05:30 [INF] Route matched with {action = "RegisterIndex", controller = "Register", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterIndex() on controller TYProject.Web.Controllers.RegisterController (TYProject.Web).
+2023-04-05 12:31:03.030 +05:30 [INF] Executing ViewResult, running view RegisterIndex.
+2023-04-05 12:31:03.037 +05:30 [INF] Executed ViewResult - view RegisterIndex executed in 7.0489ms.
+2023-04-05 12:31:03.037 +05:30 [INF] Executed action TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web) in 8.0182ms
+2023-04-05 12:31:03.037 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.RegisterController.RegisterIndex (TYProject.Web)'
+2023-04-05 12:31:03.039 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Register/RegisterIndex - - - 200 - text/html;+charset=utf-8 12.8810ms
+2023-04-05 12:31:03.061 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-05 12:31:03.062 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 0.7938ms
+2023-04-05 12:31:03.156 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-05 12:31:03.198 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.7287ms

@@ -6,6 +6,7 @@ using TYProject.SharedKernel.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using TYProject.Core.CompanyAggregate;
 using TYProject.Core.PersonAggregate;
+using TYProject.Core.ContactAggregate;
 
 namespace TYProject.Infrastructure.Data;
 
@@ -26,6 +27,8 @@ public class AppDbContext : DbContext
 
   public DbSet<Company> Companies => Set<Company>();
   public DbSet<Person> People => Set<Person>();
+
+  public DbSet<Contact> Contacts => Set<Contact>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

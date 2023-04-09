@@ -1,59 +1,62 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Ardalis.GuardClauses;
 using TYProject.Core.CompanyAggregate;
+using TYProject.Core.CouponAggregate;
+using TYProject.Core.LoginAggregate;
 using TYProject.SharedKernel;
 using TYProject.SharedKernel.Interfaces;
 
+#nullable disable
+
 namespace TYProject.Core.PersonAggregate;
-public class Person : EntityBase<long>, IAggregateRoot
+
+public partial class Person : EntityBase<long>, IAggregateRoot
 {
-  public Person(long id, long companyid, string firstname, string? lastname, string? middlename, DateTime dob, Gender gender, bool isDeleted, long createdBy, DateTime createdOnDate, long? lastModifiedBy, DateTime? lastModifiedOnDate, byte[] rowVer, Company company)
-    : base(id)
-  {
-    Companyid = companyid;
-    Firstname = Guard.Against.NullOrWhiteSpace(firstname, nameof(firstname));
-    Lastname = lastname;
-    Middlename = middlename;
-    DOB = dob;
-    Gender = gender;
-    IsDeleted = isDeleted;
-    CreatedBy = createdBy;
-    CreatedOnDate = createdOnDate;
-    LastModifiedBy = lastModifiedBy;
-    LastModifiedOnDate = lastModifiedOnDate;
-    RowVer = Guard.Against.Null(rowVer, nameof(rowVer));
 
-    Company = company;
+  public long CompanyId { get; set; }
 
-  }
-  public long Companyid { get; set; }
-  public string Firstname { get; set; }
-  public string? Lastname { get; set; }
+  public string FirstName { get; set; }
 
-  public string? Middlename { get; set; }
-  public DateTime DOB { get; set; } = DateTime.Now;
+  public string LastName { get; set; }
 
-  public Gender Gender { get; set; }
+  public string MiddleName { get; set; }
+
+  public DateTime Dob { get; set; }
+
+  public string Gender { get; set; }
+
+  public string Type { get; set; }
 
   public bool IsDeleted { get; set; }
 
-
   public long CreatedBy { get; set; }
+
   public DateTime CreatedOnDate { get; set; }
+
   public long? LastModifiedBy { get; set; }
+
   public DateTime? LastModifiedOnDate { get; set; }
 
-  [Timestamp]
   public byte[] RowVer { get; set; }
 
-  public Company Company { get; set; }
+  public virtual Company Company { get; set; }
 
-}
+  public virtual Login CreatedByNavigation { get; set; }
 
+  public virtual Login LastModifiedByNavigation { get; set; }
 
-public enum Gender
-{
-  Male,
-  Female,
-  Other
+  //public enum Gender
+  //{
+  //  Male,
+  //  Female,
+  //  Other
+  //}
+
+  //public enum Type
+  //{
+  //  Employee,
+  //  Admin,
+  //  Manager,
+  //}
+
 }

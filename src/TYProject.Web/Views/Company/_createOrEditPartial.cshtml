@@ -1,0 +1,69 @@
+﻿@model CompanyViewModel
+@using TYProject.Core.CompanyAggregate;
+@using static TYProject.Web.Controllers.CompanyController;
+
+@using (Html.BeginForm())
+{
+    <div class="mt-4">
+    <center>
+        <h2>Add New Customer</h2>
+    </center></div>
+    <div class="bg-light">
+            <div class="form-group col-md-4 mt-4">
+            <label class="form-label" for="name">Name:</label>
+            @Html.TextBoxFor(x => x.Name , new { @class= "form-control", placeholder="Name"}) 
+    </div>
+
+    <div class="form-group col-md-4 mt-2">
+        <label class="form-label" for="description">Description:</label>
+        @Html.TextBoxFor(x => x.Description , new { @class= "form-control", placeholder="Description"})
+    </div>
+     
+    <div class="row col-md-2 mt-4 float-md-start">
+        <div class="col"></div>
+        <div class="col-auto">
+            <button id="addOldSuccessButton" type="submit" title="Add new Customer" class="btn btn-primary"><i class="fa-solid"></i> Submit</button>
+            <button id="addOldCancelButton" type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+    
+    <div class="row col-md- mt-4 float-md-none">
+        <div class="col-auto">
+            <button class="btn btn-danger" type="reset">Reset</button>
+        </div>
+    </div>
+    </div>
+
+}
+
+
+<script>
+    (function onCompanyDetailsLoad(global, $) {
+
+
+        $(document).ready(function onSuccessDetailsReady() {
+
+            $("#addOldSuccessButton").on("click", function onOldSuccess() {
+                var url = '@Url.Action("Success","Company")';
+
+                global.location.href = url;
+            });
+        });
+    })(window, jQuery);
+</script>
+
+<script>
+    (function onCompanyDetailsLoad(global, $) {
+
+
+        $(document).ready(function onCompanyDetailsReady() {
+
+            $("#addOldCancelButton").on("click", function onOldCancel() {
+                var url = '@Url.Action("Index","Company")';
+
+                global.location.href = url;
+            });
+        });
+    })(window, jQuery);
+</script>
+

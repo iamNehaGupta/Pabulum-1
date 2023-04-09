@@ -1,0 +1,297 @@
+﻿@using static TYProject.Web.Controllers.CompanyController;
+@model CompanyViewModel
+
+<script type="text/x-kendo-template" id="PersonListing_row">
+    # console.log('Inside tempate', data) #
+    <tr data-bind="click: showDetail" data-uid="#: uid #">
+        <td>#: data.id #</td>
+        <td>#: data.company id #</td>
+        <td><span>#: data.first name #</span></td>
+       <td><span>#: data.last name #</span></td>
+       <td><span>#: data.middle name #</span></td>
+       <td><span>#: data.gender #</span></td>
+       <td><span>#: data.dob #</span></td>
+      
+        <td>
+            <button title="Edit" class="btn btn-light"><i class="fa-solid fa-pencil"></i></button>
+            <button title="Delete" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+        </td>
+    </tr>
+</script>
+
+<script>
+    (function onCompanyDetailsLoad(global, $){
+
+
+        $(document).ready(function onCompanyDetailsReady(){
+
+            $("#addNewPersonButton").on("click", function onNewPersonButton(){
+                var url = '@Url.Action("Create","Person")';
+
+                global.location.href = url + "?companyId=" + @Model.Id;
+            });
+        });
+    })(window, jQuery);
+</script>
+
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-title">
+                    <h4>Details</h4>
+                </div>
+            </div>
+            
+                <div class="card-body">
+                <div class="row mt-3">
+                    <div class="col">
+                        <h6 class="">Name:</h6>
+                        <span>@Model.Name</span>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <h6 class="">Description:</h6>
+                        <p>@Model.Description</p>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col"></div>
+                    <div class="col-auto">
+                        <span class="">Version</span>
+                        <span>@string.Join("", Model.RowVer)</span>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+<div>
+    <hr class="class-2" />
+    <br />
+</div>
+
+<!-- Script-->
+<script type="text/x-kendo-template" id="companyListing_row">
+    # console.log('Inside tempate', data) #
+    <tr data-bind="click: showDetail" data-uid="#: uid #">
+        <td>#: data.id #</td>
+        <td><span>#: data.name #</span></td>
+        <td><span>#: data.isActive ? 'Yes' : 'No' #</span></td>
+        <td>
+            <button title="Edit" class="btn btn-light"><i class="fa-solid fa-pencil"></i></button>
+            <button title="Delete" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+        </td>
+    </tr>
+</script>
+
+<div class="container">
+
+    <!-- Employees Details -->
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">   
+                        <div class="card-header-title">   
+                        <h4>Employees</h4>
+                    </div>
+                    <div class="col-auto">
+                        <button id="addNewPersonButton" type="button" title="Add new Employees" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add</button>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">  
+
+    <!-- Page Content -->
+    <div class="bg-light">
+        <div id="Person-table-container" class="row mt-4">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-cell-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Company ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Middle Name</th>
+                                <th>Gender</th>
+                                <th>DOB</th>
+                                <th style="width:150px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="visible: showSpinner">
+                            <tr>
+                                <td colspan="8">
+                                    <div class="d-flex justify-content-center text-info">
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody data-template="PersonListing_row" data-bind=" visible: hasData, source: Data">
+                        </tbody>
+                    </table>
+
+                    <span data-bind="invisible: hasData">No Data Found</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-auto">
+            <button id="PersonListRefreshBtn" title="Refresh" class="btn btn-secondary"><i class="fa-solid fa-arrows-rotate"></i></button>
+        </div>
+    </div>
+
+    <div id="createEditWindow"></div>
+
+
+
+        <script>
+            (function onPersonIndexLoad(global, $, kendo) {
+
+                var urls = {};
+
+            
+                global.PersonIndexContent = {};
+                global.PersonIndexContext.model = pageModel;
+                global.PersonIndexContext.showSpinner = showSpinner;
+                global.PersonIndexContext.hideSpinner = hideSpinner;
+                global.PersonIndexContext.detail = detail;
+                global.PersonIndexContext.openWindow = openWindow;
+
+                var PersonPageModel = kendo.data.Model.define({
+                    fields: {
+                        IsBusy: { type: 'boolean', default: 'false' },
+                        Data: { type: 'object', default: [] },
+                        Errors: { type: 'object', default: [] },
+                    },
+
+                    // returns true if errrors present, otherwise false
+                    hasErrors: function hasErrors() {
+                        return this.get('Errors').length > 0;
+                    },
+                    showSpinner: function showSpinner() {
+                        return this.get('IsBusy') === true;
+                    },
+                    hasData: function hasData() {
+                        return this.get('Data').length > 0;
+                    }
+                });
+
+                var PersonModel = kendo.data.Model.define({
+                    fields: {
+                        Id: { type: 'number', default: 0 },
+                        Company Id: { type: 'number', default: 0 },
+                        First Name: { type: 'string', default: '' },
+                        Last Name: { type: 'string', default: '' },
+                         Middle Name: { type: 'string', default: '' },
+                        Gender : { type: 'Gender', default: '' },
+                        DOB : { type: 'DOB', default: '' },
+                        IsActive: { type: 'boolean', default: false }
+                    },
+                    showDetail: function () {
+                        var id = this.id;
+
+                        global.location.href = urls.Detail + "?id=" + id;
+                    }
+                });
+
+                function openWindow() {
+                    var windowOptions = {
+                        actions: ["Custom", "Minimize", "Maximize", "Close"],
+                        draggable: false,
+                        resizable: false,
+                        width: "500px",
+                        title: "EGG CHAIR",
+                        visible: false,
+                        close: function () { }
+                    };
+
+                    $("#createEditWindow").kendoWindow(windowOptions);
+
+                    $("#createEditWindow").data("kendoWindow").open();
+                    $("#createEditWindow").data("kendoWindow").center();
+
+                }
+
+                var pageModel = null;
+
+                async function get() {
+
+                    var url = global.Main.rootUrl + "/Person/AllPeople";
+
+                    try {
+
+                        showSpinner();
+
+                        var response = await $.ajax({
+                            method: "GET",
+                            url: url,
+                        });
+
+                        if (response.isSuccess) {
+                            var People = response.data;
+                            pageModel.set('Data', response.data.map(e => new PersonModel(e)));
+                            console.log(pageModel.get('Data'));
+                        } else {
+                            pageModel.set('Data', []);
+                            pageModel.set('Errors', response.errors);
+                        }
+
+                        console.log("PageModel: ", pageModel);
+
+                    } catch (err) {
+                        console.error("Failed to fetch Employees");
+                    } finally {
+                        hideSpinner();
+                    }
+
+                };
+
+              
+
+                function showSpinner() {
+                    pageModel.set('IsBusy', true);
+                }
+
+                function hideSpinner() {
+                    pageModel.set('IsBusy', false);
+                }
+
+                $(document).ready(async function onPersonIndexReady() {
+
+                    pageModel = new companyPageModel();
+
+                    $("#showSpinnerbtn").on('click', function showSpinnerHandler() { showSpinner(); });
+                    $("#hideSpinnerbtn").on('click', function hideSpinnerHandler() { hideSpinner(); });
+
+                    $("#PersonListRefreshBtn").on('click', async function refresh() {
+                        await get();
+                    });
+
+                    await get();
+
+                    kendo.bind($("#Person-table-container"), pageModel);
+
+                    console.log("Layout", '@Layout');
+                });
+
+            })(window, jQuery, kendo);
+        </script>
+       
+    </div>
+    </div>

@@ -1,0 +1,124 @@
+﻿@model ContactViewModel
+@using TYProject.Core.ContactAggregate;
+@using static TYProject.Web.Controllers.ContactController;
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<!-- The Contact Section -->
+
+ 
+<script>
+    (function onContactFormLoad(global, $) {
+
+        var container = null;
+
+        function submitContactForm(form){
+
+            var url = global.Main.rootUrl + "/Contact/create";
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
+                success: function (data) {
+                    alert(data); // show response from the php script.
+                    console.log("Data: ", data);
+                },
+                fail: function onFormPostFailed(e){
+                    console.log("Failed to post", e);
+                }
+            });
+        }
+
+
+        $(document).ready(function onContactReady(){
+
+            container = $(".form-container__contact");
+
+            $("form", container).submit(function (e) {
+
+                // stop the propogation
+                e.preventDefault();
+
+                // ovverride the submit
+                var form = $(this);
+                submitContactForm(form);
+            });
+        });
+
+    })(window, jQuery);
+</script>
+
+<style>
+
+    .div1 {
+        width: 300px;
+        height: 100px;
+        border: 1px solid;
+    }
+
+</style>
+
+<section class="vh-70" style="background-color: aqua;">
+    <div class="container h-80">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1100px" id="contact">
+        <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-60">
+                    <div class="col-lg-12 col-xl-11">
+                     <div class="card text-black" style="border-radius: 30px;">
+                     <div class="card-body p-md-5">
+                      <div class="row justify-content-start">
+
+                      <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                      <p class="text-lg-start h1 fw-bold mb-5 mx-1 mx-md-4 mt">Contact</p>
+       
+        
+            <div class="w3-col m6 form-container__contact">
+                <form>
+                    @Html.AntiForgeryToken()
+                    <div class="w3-row-padding">
+                        <div class="w3-half col-md-6 mt-2">
+                            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                        </div>
+                        <div class="w3-half col-md-6 mt-2">
+                            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 mt-4">
+                        <input class="div1 " type="text" placeholder="Message" required name="Description"><br /><br />
+                    </div>
+
+                    <div class="mt-4">
+                    <button class="btn btn-primary btn-lg" type="submit">
+                        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                    </button></div>
+                </form>
+            </div>
+            </div>
+
+           <div class="col-md-10 col-lg-6 col-xl-6 mx-md-4 d-flex align-items-lg-center order-1 order-lg-4">
+
+
+              <div class="w3-row w3-padding-32">
+                  <div class="w3-col m6 w3-large w3-margin-bottom">
+                      <p class="w3-opacity w3-center"><i>Customers? Drop a note!</i></p>
+                      <i class="fa fa-map-marker" style="width:50px"></i> Mumbai, India<br>
+                      <i class="fa fa-phone" style="width:50px"></i> Phone: +91 8965201145<br>
+                      <i class="fa fa-envelope" style="width:50px"> </i> Email: support@gmail.com<br>
+                   </div>
+                        <br />
+                        <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+              </div>
+                    
+            </div>
+    </div>
+    </div></div>
+    </div></div>
+    </div></div>
+    </div>
+    
+</section>

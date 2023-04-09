@@ -1,6 +1,11 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.IdentityModel.Tokens.Jwt;
+using JetBrains.Annotations;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using TYProject.Core.CompanyAggregate;
 using TYProject.Core.PersonAggregate;
 using TYProject.Infrastructure.Data;
 using TYProject.Web.Extensions;
@@ -24,37 +29,82 @@ public class PersonController : Controller
     return View();
   }
 
+  public IActionResult Employees()
+  {
+    return View();
+  }
+
+  [HttpGet]
+  [AllowAnonymous]
+  public IActionResult Create(long companyId)
+  {
+    var vm = new PersonViewModel(0, companyId, string.Empty, null, null, DateTime.Now, Gender.Male, false, Array.Empty<byte>());
+    return View(vm);
+  }
+
+  [HttpPost]
+  [AllowAnonymous]
+  [ValidateAntiForgeryToken]
+  public async  Task<IActionResult> Create(PersonViewModel person)
+  {
+    if (!ModelState.IsValid)
+    {
+     
+      return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
+    }
+
+    var model = new Person(person.Id, person.Companyid, person.FirstName, person.LastName, person.MiddleName, Core.PersonAggregate.Type.Employee, person.DOB, person.Gender, person.IsDeleted, 1, DateTime.Now, null, null, Array.Empty<byte>());
+    var company = await context.People.AddAsync(model);
+
+    await context.SaveChangesAsync();
+    return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
+  }
+
+  [HttpGet]
+  public IActionResult Success()
+  { 
+      return PartialView();
+  }
+
+  [HttpPost] 
+  [ValidateAntiForgeryToken]
+  public IActionResult Success(PersonViewModel person)
+  {
+    return View();
+  
+  }
+
   //[HttpGet]
   //public IActionResult Create()
   //{
   //  return View();
   //}
 
-  //[HttpPost]
+ // [HttpPost]
   //[ValidateAntiForgeryToken]
-  //public async Task<IActionResult> Create(PersonViewModel payload)
-  //{
-  //  logger.Information("Received create company request: @request", payload);
+  //public async Task<IActionResult> Create1(PersonViewModel payload)
+ // {
+  // logger.Information("Received create company request: @request", payload);
+//
+//    if (!ModelState.IsValid)
+//    {
+//      logger.Information("payload contains invalid data", ModelState.GetErrors());
 
-  //  if (!ModelState.IsValid)
-  //  {
-  //    logger.Information("payload contains invalid data", ModelState.GetErrors());
-
-  //    return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
-  //  }
+//      return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
+ //   }
   //  try
   //  {
-  //    var model = new Person(0, payload.Id, payload.Companyid, payload.FirstName, payload.LastName, payload.MiddleName, payload.DOB, payload.Gender, payload.IsDeleted, payload.RowVer, Array.Empty<byte>());
-  //    var persons = context.Companies.AddAsync(model);
-  //    await context.SaveChangesAsync();
-  //    return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
-  //  }
-  //  catch (Exception ex)
-  //  {
-  //    logger.Error(ex, "Failed to create person");
-  //    return Json(InternalServerError());
-  //  }
-  //}
+//      var model = new Person(0, payload.Id, payload.Companyid, payload.FirstName, payload.LastName, payload.MiddleName, payload.DOB, payload.Gender, payload.IsDeleted, payload.RowVer, Array.Empty<byte>());
+//      var persons = context.Companies.AddAsync(model);
+//      await context.SaveChangesAsync();
+//      return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
+//    }
+//    catch (Exception ex)
+//    {
+//      logger.Error(ex, "Failed to create person");
+ //     return Json(InternalServerError());
+ //   }
+ // }
 
   //[HttpGet]
   //public async Task<IActionResult> Edit(long id)
@@ -191,7 +241,7 @@ public class PersonController : Controller
       }
 
       people = company.People
-        .Select(x => new PersonViewModel(x.Id, x.Companyid, x.Firstname, x.Lastname, x.Middlename , x.DOB, x.Gender, x.IsDeleted, x.RowVer))
+        .Select(x => new PersonViewModel(x.Id, x.CompanyId, x.Firstname, x.Lastname, x.Middlename , x.DOB, x.Gender, x.IsDeleted, x.RowVer))
         .ToList();
 
       return Json(new OperationResult<IList<PersonViewModel>>(ModelState.IsValid, ModelState.GetErrors())
@@ -250,6 +300,7 @@ public class PersonController : Controller
     }
     public long Id { get; set; }
     public long Companyid { get; set; }
+    
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string MiddleName { get; set; }
@@ -262,6 +313,16 @@ public class PersonController : Controller
   public class PersonViewModel
   {
 
+    public PersonViewModel()
+    {
+      Id = 0;
+      Companyid = 0;
+      FirstName = string.Empty;
+      DOB = DateTime.Now;
+      Gender = Gender.Male;
+      IsDeleted = false;
+      RowVer = Array.Empty<byte>();
+    }
     public PersonViewModel(long id, long companyid, string firstName, string? lastName, string? middleName, DateTime dob, Gender gender, bool isDeleted, byte[] rowVer)
     {
       Id = id;
@@ -277,9 +338,15 @@ public class PersonController : Controller
     }
     public long Id { get; set; }
     public long Companyid { get; set; }
+
     public string FirstName { get; set; }
+
     public string? LastName { get; set; }
     public string? MiddleName { get; set; }
+
+    [Required(ErrorMessage = "Please enter date of birth")]
+    [Display(Name = "Date of Birth")]
+    [DataType(DataType.Date)]
     public DateTime DOB { get; set; }
     public Gender Gender { get; set; }
     public bool IsDeleted { get; set; }

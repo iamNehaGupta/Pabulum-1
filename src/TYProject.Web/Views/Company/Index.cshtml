@@ -4,8 +4,8 @@
 
 
 <script type="text/x-kendo-template" id="companyListing_row">
-    # console.log('Inside tempate', data) #
-    <tr data-uid="#: uid #">
+    # console.log('Inside tempate', data) # 
+    <tr data-bind="click: showDetail" data-uid="#: uid #">
         <td>#: data.id #</td>
         <td><span>#: data.name #</span></td>
         <td><span>#: data.isActive ? 'Yes' : 'No' #</span></td>
@@ -16,9 +16,25 @@
     </tr>
 </script>
 
+<script>
+    (function onCompanyDetailsLoad(global, $) {
+
+
+        $(document).ready(function onCompanyDetailsReady() {
+
+            $("#addNewPersonButton").on("click", function onNewPerson() {
+                var url = '@Url.Action("Create","Company")';
+
+                global.location.href = url + "?companyId=" ;
+            });
+        });
+    })(window, jQuery);
+</script>
+
 <div class="container">
 
     <!-- Page Header -->
+    
     <div class="row">
         <div class="col">
             <div class="header">
@@ -33,7 +49,7 @@
                             </h1>
                         </div>
                         <div class="col-auto">
-                            <button title="Add new customer" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add</button>
+                            <button id="addNewPersonButton" type="button" title="Add new customer" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add</button>
                         </div>
                     </div>
                 </div>
@@ -41,8 +57,9 @@
             <hr />
         </div>
     </div>
-
+    </div>
     <!-- Page Content -->
+    <div class="bg-info">
     <div id="company-table-container" class="row mt-4">
         <div class="col">
             <div class="table-responsive">
@@ -73,24 +90,32 @@
                 <span data-bind="invisible: hasData">No Data Found</span>
             </div>
         </div>
-    </div>
+    </div></div>
 
     <div class="row">
         <div class="col">
         </div>
         <div class="col-auto">
-            <button title="Refresh" class="btn btn-secondary"><i class="fa-solid fa-arrows-rotate"></i></button>
+            <button id="companyListRefreshBtn" title="Refresh" class="btn btn-secondary"><i class="fa-solid fa-arrows-rotate"></i></button>
         </div>
     </div>
-</div>
+
+    <div id="createEditWindow"></div>
+
 
 <script>
     (function onCompanyIndexLoad(global, $, kendo) {
+
+        var urls = {};
+
+        urls.Detail = '@Url.Action("Detail", "Company")';
 
         global.CompanyIndexContext = {};
         global.CompanyIndexContext.model = pageModel;
         global.CompanyIndexContext.showSpinner = showSpinner;
         global.CompanyIndexContext.hideSpinner = hideSpinner;
+        global.CompanyIndexContext.detail = detail;
+        global.CompanyIndexContext.openWindow = openWindow; 
 
         var companyPageModel = kendo.data.Model.define({
             fields: {
@@ -108,7 +133,7 @@
             },
             hasData: function hasData(){
                 return this.get('Data').length > 0;
-            },
+            }
         });
 
         var companyModel = kendo.data.Model.define({
@@ -116,8 +141,31 @@
                 Id: { type: 'number', default: 0 },
                 Name: { type: 'string', default: '' },
                 IsActive: { type: 'boolean', default: false }
+            },
+            showDetail: function (){
+                var id = this.id;
+
+                global.location.href = urls.Detail + "?id=" + id;
             }
         });
+
+        function openWindow(){
+            var windowOptions = {
+                actions: ["Custom", "Minimize", "Maximize", "Close"],
+                draggable: false,
+                resizable: false,
+                width: "500px",
+                title: "EGG CHAIR",
+                visible: false,
+                close: function(){}
+            };
+
+            $("#createEditWindow").kendoWindow(windowOptions);
+
+            $("#createEditWindow").data("kendoWindow").open();
+            $("#createEditWindow").data("kendoWindow").center();
+
+        }  
 
         var pageModel = null;
 
@@ -133,8 +181,6 @@
                     method: "GET",
                     url: url,
                 });
-
-                console.log(response);
 
                 if (response.isSuccess) {
                     var companies = response.data;
@@ -155,6 +201,11 @@
             
         };
 
+        function detail(id){
+            var url = '@Url.Action("Detail", "Company")';
+            global.location.href = url;
+        }
+
         function showSpinner(){
             pageModel.set('IsBusy', true);
         }
@@ -170,9 +221,15 @@
             $("#showSpinnerbtn").on('click', function showSpinnerHandler() { showSpinner(); });
             $("#hideSpinnerbtn").on('click', function hideSpinnerHandler() { hideSpinner(); });
             
+            $("#companyListRefreshBtn").on('click', async function refresh(){
+                await get();
+            });
+
             await get();
 
             kendo.bind($("#company-table-container"), pageModel);
+
+            console.log("Layout", '@Layout');
         });
 
     })(window, jQuery, kendo);

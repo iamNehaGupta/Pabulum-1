@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TYProject.Core.CompanyAggregate;
 using TYProject.Core.PersonAggregate;
 using TYProject.Infrastructure.Data;
 using TYProject.Web.Extensions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace TYProject.Web.Controllers;
 public class CompanyController : Controller
@@ -22,10 +27,25 @@ public class CompanyController : Controller
     return View();
   }
 
+
+  public async Task<IActionResult> Detail(long id)
+  {
+    var company = await context.Companies.FindAsync(id);
+
+    if (company == null)
+    {
+      return View("AccessDenied");
+    }
+
+    var vm = new CompanyViewModel(company.Id, company.Name, company.Description, company.IsDeleted, company.RowVer);
+
+    return View(vm);
+  }
+
   [HttpGet]
   public IActionResult Create()
   {
-    return View();
+    return PartialView();
   }
 
   [HttpPost]
@@ -42,11 +62,22 @@ public class CompanyController : Controller
     }
     try
     {
-      var model = new Company(0, payload.Name, payload.Description, payload.IsDeleted, 1, DateTime.Now, null, null, Array.Empty<byte>(), new List<Person>());
+      var model = new Company(0, payload.Name, payload.Description, payload.IsDeleted, 1, DateTime.Now, null, null, Array.Empty<byte>());
 
       var company = context.Companies.AddAsync(model);
 
       await context.SaveChangesAsync();
+
+      var couponId = Guid.NewGuid();
+
+      // code
+      // id
+      // personid
+      // companyid
+      // expirydate
+      // purchasedOn
+      // UtilizedOn
+
 
       return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
     }
@@ -57,6 +88,9 @@ public class CompanyController : Controller
       return Json(InternalServerError());
     }
   }
+
+ 
+  
 
   [HttpGet]
   public async Task<IActionResult> Edit(long id)
@@ -183,7 +217,7 @@ public class CompanyController : Controller
     try
     {
       var companies = context.Companies
-        .Select(x => new CompanyViewModel(x.Id, x.Name, !x.IsDeleted))
+        .Select(x => new CompanyBasicInfoModel(x.Id, x.Name, !x.IsDeleted))
         .ToList();
 
       return Json(new OperationResult<IList<CompanyBasicInfoModel>>(ModelState.IsValid, ModelState.GetErrors())
@@ -242,6 +276,23 @@ public class CompanyController : Controller
     public bool IsActive { get; set; }
   }
 
+  public class Person
+  {
+    public long? Id { get; set; }
+    public long? Companyid { get; set; }
+
+    public string? FirstName { get; set; }
+
+    public string? LastName { get; set; }
+    public string? MiddleName { get; set; }
+
+     
+    public DateTime? DOB { get; set; }
+    public Gender Gender { get; set; }
+  }
+
+
+
   public class CompanyViewModel
   {
     public CompanyViewModel(long id, string name, string? description, bool isDeleted, byte[] rowVer)
@@ -251,12 +302,16 @@ public class CompanyController : Controller
       Description = description;
       IsDeleted = isDeleted;
       RowVer = rowVer;
+      Person = new List<Core.PersonAggregate.Person>();
     }
     public long Id { get; set; }
     public string Name { get; set; }
     public string? Description { get; set; }
     public bool IsDeleted { get; set; }
     public byte[] RowVer { get; set; }
+    //public List<PersonViewModel>
+    public List<Core.PersonAggregate.Person> Person { get; set; }
+
   }
 
 

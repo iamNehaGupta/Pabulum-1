@@ -10,8 +10,8 @@ CREATE TABLE [dbo].[Login] (
 	-- MAINTAINENCE COLUMNS
 	[CreatedBy] BIGINT NOT NULL,
 	[CreatedOnDate] DATETIME NOT NULL,
-	[LastModifiedBy] BIGINT NOT NULL,
-	[LastModifiedOnDate] DATETIME NOT NULL,
+	[LastModifiedBy] BIGINT NULL,
+	[LastModifiedOnDate] DATETIME NULL,
 
     [RowVer] ROWVERSION NOT NULL,
 	
@@ -32,8 +32,8 @@ CREATE TABLE [dbo].[Company](
 	-- MAINTAINENCE COLUMNS
 	[CreatedBy] BIGINT NOT NULL,
 	[CreatedOnDate] DATETIME NOT NULL,
-	[LastModifiedBy] BIGINT NOT NULL,
-	[LastModifiedOnDate] DATETIME NOT NULL,
+	[LastModifiedBy] BIGINT NULL,
+	[LastModifiedOnDate] DATETIME NULL,
 
     [RowVer] ROWVERSION NOT NULL,
 
@@ -58,8 +58,8 @@ CREATE TABLE [dbo].[Person] (
 	-- MAINTAINENCE COLUMNS
 	[CreatedBy] BIGINT NOT NULL,
 	[CreatedOnDate] DATETIME NOT NULL,
-	[LastModifiedBy] BIGINT NOT NULL,
-	[LastModifiedOnDate] DATETIME NOT NULL,
+	[LastModifiedBy] BIGINT NULL,
+	[LastModifiedOnDate] DATETIME NULL,
 
     [RowVer] ROWVERSION NOT NULL,
 
