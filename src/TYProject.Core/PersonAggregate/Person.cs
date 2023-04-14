@@ -22,9 +22,9 @@ public partial class Person : EntityBase<long>, IAggregateRoot
 
   public DateTime DOB { get; set; }
 
-  public string GENDER { get; set; }
+  public Gender GENDER { get; set; }
 
-  public string Type { get; set; }
+  public Type Type { get; set; }
 
   public bool IsDeleted { get; set; }
 

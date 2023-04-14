@@ -3,7 +3,7 @@
 
 <script type="text/x-kendo-template" id="PersonListing_row">
     # console.log('Inside tempate', data) #
-    <tr data-bind="click: showDetail" data-uid="#: uid #">
+    <tr data-uid="#: uid #">
         <td>#: data.id #</td>
         <td>#: data.companyid #</td>
         <td><span>#: data.firstName #</span></td>
@@ -11,10 +11,11 @@
        <td><span>#: data.middleName #</span></td>
        <td><span>#: data.gender #</span></td>
        <td><span>#: kendo.toString(new Date(data.dob), "F") #</span></td>
+       <td><span>#: data.isDeleted #</span></td>
       
         <td>
             <button title="Edit" class="btn btn-light"><i class="fa-solid fa-pencil"></i></button>
-            <button title="Delete" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            <button id="IsDeletedBtn" title="Delete" class="btn btn-danger" data-bind="click: delete"><i class="fa-solid fa-trash"></i></button>
         </td>
     </tr>
 </script>
@@ -77,13 +78,15 @@
 <!-- Script-->
 <script type="text/x-kendo-template" id="companyListing_row">
     # console.log('Inside tempate', data) #
-    <tr data-bind="click: showDetail" data-uid="#: uid #">
+    <tr data-uid="#: uid #">
         <td>#: data.id #</td>
         <td><span>#: data.name #</span></td>
         <td><span>#: data.isActive ? 'Yes' : 'No' #</span></td>
         <td>
             <button title="Edit" class="btn btn-light"><i class="fa-solid fa-pencil"></i></button>
-            <button title="Delete" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            <button type="button" title="DELETE" class="btn btn-danger" data-bind="events: {
+                click: delete
+            }" ><i class="fa-solid fa-trash"></i></button>
         </td>
     </tr>
 </script>
@@ -124,12 +127,13 @@
                                 <th>Middle Name</th>
                                 <th>Gender</th>
                                 <th>DOB</th>
+                                <th style="width:120px;">IsDelete</th>
                                 <th style="width:150px;">Action</th>
                             </tr>
                         </thead>
                         <tbody data-bind="visible: showSpinner">
                             <tr>
-                                <td colspan="8">
+                                <td colspan="9">
                                     <div class="d-flex justify-content-center text-info">
                                         <div class="spinner-border" role="status">
                                             <span class="visually-hidden">Loading...</span>
@@ -167,11 +171,6 @@
 
             
                 global.PersonIndexContent = {};
-                //global.PersonIndexContext.model = pageModel;
-                //global.PersonIndexContext.showSpinner = showSpinner;
-                //global.PersonIndexContext.hideSpinner = hideSpinner;
-                //global.PersonIndexContext.detail = detail;
-                //global.PersonIndexContext.openWindow = openWindow;
 
                 var PersonPageModel = kendo.data.Model.define({
                     fields: {
@@ -201,12 +200,37 @@
                         MiddleName: { type: 'string', default: '' },
                         Gender : { type: 'Gender', default: '' },
                         DOB : { type: 'DOB', default: '' },
+                        IsDelete : { type: 'boolean', default: ''},
                         IsActive: { type: 'boolean', default: false }
                     },
                     showDetail: function () {
                         var id = this.id;
 
                         global.location.href = urls.Detail + "?id=" + id;
+                    },
+                    delete: async function (){
+                        var url = global.Main.rootUrl + "/Person/Delete?id=" + this.id;
+                        console.log("delete", this);
+                        try {
+
+                            showSpinner();
+
+                            var response = await $.ajax({
+                                method: "POST",
+                                url: url,
+                            });
+                            console.log('Response', response);
+                            if (response.isSuccess) {
+                                console.log("Sucessfully deleted person");
+                            } 
+
+                            await get();
+
+                        } catch (err) {
+                            console.error("Failed to delete Employees");
+                        } finally {
+                            hideSpinner();
+                        }
                     }
                 });
 

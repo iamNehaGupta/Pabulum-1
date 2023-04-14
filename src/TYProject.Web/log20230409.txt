@@ -14800,3 +14800,1183 @@ ORDER BY [t].[ID]
 2023-04-09 20:24:12.971 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 11.9459ms
 2023-04-09 20:24:12.971 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
 2023-04-09 20:24:12.972 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=5 - - - 200 - application/json;+charset=utf-8 13.6571ms
+2023-04-09 23:55:48.391 +05:30 [INF] Registered 5 endpoints in 521 milliseconds.
+2023-04-09 23:55:48.755 +05:30 [INF] User profile is available. Using 'C:\Users\Neha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-09 23:55:51.586 +05:30 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-09 23:55:51.667 +05:30 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-09 23:55:52.115 +05:30 [ERR] Failed executing DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-09 23:55:52.150 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:edccec21-672c-4fcb-a4a8-521464a7eb23
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:edccec21-672c-4fcb-a4a8-521464a7eb23
+Error Number:208,State:1,Class:16
+2023-04-09 23:55:52.159 +05:30 [ERR] An error occurred seeding the DB. Invalid object name 'ToDoItems'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method460(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at TYProject.Web.SeedData.Initialize(IServiceProvider serviceProvider) in C:\Pabulum\Pabulum-1\src\TYProject.Web\SeedData.cs:line 35
+   at Program.<Main>$(String[] args) in C:\Pabulum\Pabulum-1\src\TYProject.Web\Program.cs:line 97
+ClientConnectionId:edccec21-672c-4fcb-a4a8-521464a7eb23
+Error Number:208,State:1,Class:16
+2023-04-09 23:55:52.380 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-09 23:55:52.381 +05:30 [INF] Hosting environment: Development
+2023-04-09 23:55:52.381 +05:30 [INF] Content root path: C:\Pabulum\Pabulum-1\src\TYProject.Web
+2023-04-09 23:55:52.413 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-09 23:55:52.672 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-04-09 23:55:52.712 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-09 23:55:52.727 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-09 23:55:52.745 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-09 23:55:53.615 +05:30 [INF] Executed ViewResult - view Index executed in 871.9658ms.
+2023-04-09 23:55:53.620 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 891.6907ms
+2023-04-09 23:55:53.621 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-09 23:55:53.720 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 1310.7003ms
+2023-04-09 23:55:53.865 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:55:53.872 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 6.8660ms
+2023-04-09 23:55:53.888 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:55:54.010 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 121.1748ms
+2023-04-09 23:55:56.748 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-09 23:55:56.756 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-09 23:55:56.762 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:55:56.767 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-09 23:55:56.790 +05:30 [INF] Executed ViewResult - view Index executed in 24.9569ms.
+2023-04-09 23:55:56.791 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 28.6682ms
+2023-04-09 23:55:56.791 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-09 23:55:56.797 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 48.8568ms
+2023-04-09 23:55:56.852 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:55:56.854 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.2388ms
+2023-04-09 23:55:56.857 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:55:56.903 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.4926ms
+2023-04-09 23:55:57.012 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-09 23:55:57.016 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:55:57.018 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:55:57.188 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[ID], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-09 23:55:57.214 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:55:57.376 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 357.5499ms
+2023-04-09 23:55:57.376 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:55:57.382 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 369.4146ms
+2023-04-09 23:55:58.997 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - -
+2023-04-09 23:55:59.002 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:55:59.034 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:55:59.212 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - -
+2023-04-09 23:55:59.214 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:55:59.214 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:55:59.248 +05:30 [INF] Executed DbCommand (49ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:55:59.250 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:55:59.392 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:55:59.392 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:55:59.405 +05:30 [INF] Executed ViewResult - view Detail executed in 14.1159ms.
+2023-04-09 23:55:59.405 +05:30 [INF] Executed ViewResult - view Detail executed in 14.1155ms.
+2023-04-09 23:55:59.405 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 191.2777ms
+2023-04-09 23:55:59.405 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:55:59.405 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 371.0152ms
+2023-04-09 23:55:59.405 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:55:59.407 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - - - 200 - text/html;+charset=utf-8 410.3658ms
+2023-04-09 23:55:59.408 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - - - 200 - text/html;+charset=utf-8 195.5658ms
+2023-04-09 23:55:59.472 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:55:59.472 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:55:59.475 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.2664ms
+2023-04-09 23:55:59.518 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.4999ms
+2023-04-09 23:55:59.637 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - -
+2023-04-09 23:55:59.638 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:55:59.653 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:55:59.816 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:55:59.910 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:55:59.929 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 275.9863ms
+2023-04-09 23:55:59.929 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:55:59.930 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - - - 200 - application/json;+charset=utf-8 293.1579ms
+2023-04-09 23:56:02.021 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/undefined?id=26 - -
+2023-04-09 23:56:02.026 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/undefined?id=26 - - - 404 - - 4.9248ms
+2023-04-09 23:56:03.318 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:03.319 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 0.9582ms
+2023-04-09 23:56:05.235 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/undefined?id=26 - -
+2023-04-09 23:56:05.238 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/undefined?id=26 - - - 404 - - 2.0888ms
+2023-04-09 23:56:06.461 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:06.462 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.5728ms
+2023-04-09 23:56:09.101 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - -
+2023-04-09 23:56:09.102 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:09.103 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:09.111 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:56:09.112 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:56:09.117 +05:30 [INF] Executed ViewResult - view Detail executed in 5.7078ms.
+2023-04-09 23:56:09.118 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 14.1956ms
+2023-04-09 23:56:09.118 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:09.121 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - - - 200 - text/html;+charset=utf-8 19.8783ms
+2023-04-09 23:56:09.144 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:09.144 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:56:09.147 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.4601ms
+2023-04-09 23:56:09.194 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.8858ms
+2023-04-09 23:56:09.269 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - -
+2023-04-09 23:56:09.271 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:09.271 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:09.281 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:09.283 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:09.284 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 12.5091ms
+2023-04-09 23:56:09.284 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:09.284 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - - - 200 - application/json;+charset=utf-8 15.5714ms
+2023-04-09 23:56:10.041 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:10.042 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.0754ms
+2023-04-09 23:56:11.346 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=4 - -
+2023-04-09 23:56:11.349 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:11.349 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:11.357 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:56:11.358 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:56:11.364 +05:30 [INF] Executed ViewResult - view Detail executed in 6.253ms.
+2023-04-09 23:56:11.364 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 15.4361ms
+2023-04-09 23:56:11.364 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:11.369 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=4 - - - 200 - text/html;+charset=utf-8 23.0006ms
+2023-04-09 23:56:11.407 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:11.409 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.5951ms
+2023-04-09 23:56:11.416 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:56:11.462 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.9910ms
+2023-04-09 23:56:11.596 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=4 - -
+2023-04-09 23:56:11.597 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:11.597 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:11.603 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:11.604 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:11.605 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 7.6984ms
+2023-04-09 23:56:11.605 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:11.606 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=4 - - - 200 - application/json;+charset=utf-8 9.6011ms
+2023-04-09 23:56:12.958 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:12.961 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.3231ms
+2023-04-09 23:56:14.117 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - -
+2023-04-09 23:56:14.119 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:14.119 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:14.126 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:56:14.127 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:56:14.133 +05:30 [INF] Executed ViewResult - view Detail executed in 5.8273ms.
+2023-04-09 23:56:14.133 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 14.1702ms
+2023-04-09 23:56:14.133 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:14.138 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - - - 200 - text/html;+charset=utf-8 20.8198ms
+2023-04-09 23:56:14.173 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:14.175 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:56:14.175 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.6540ms
+2023-04-09 23:56:14.225 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.4625ms
+2023-04-09 23:56:14.336 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - -
+2023-04-09 23:56:14.337 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:14.337 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:14.345 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:14.346 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:14.347 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 9.546ms
+2023-04-09 23:56:14.347 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:14.347 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - - - 200 - application/json;+charset=utf-8 10.9810ms
+2023-04-09 23:56:16.668 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - -
+2023-04-09 23:56:16.669 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:16.669 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:16.678 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:16.679 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:16.680 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 10.7194ms
+2023-04-09 23:56:16.680 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:16.681 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - - - 200 - application/json;+charset=utf-8 12.8629ms
+2023-04-09 23:56:20.083 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:20.085 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.1489ms
+2023-04-09 23:56:21.631 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - -
+2023-04-09 23:56:21.632 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:21.633 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:21.643 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:56:21.644 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:56:21.650 +05:30 [INF] Executed ViewResult - view Detail executed in 6.9047ms.
+2023-04-09 23:56:21.651 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 17.8305ms
+2023-04-09 23:56:21.651 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:21.658 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - - - 200 - text/html;+charset=utf-8 27.5782ms
+2023-04-09 23:56:21.682 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:21.684 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7049ms
+2023-04-09 23:56:21.691 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:56:21.751 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.5619ms
+2023-04-09 23:56:21.844 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - -
+2023-04-09 23:56:21.845 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:21.846 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:21.853 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:21.855 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:21.855 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 9.6315ms
+2023-04-09 23:56:21.855 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:21.856 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - - - 200 - application/json;+charset=utf-8 11.1380ms
+2023-04-09 23:56:24.262 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:24.264 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.2911ms
+2023-04-09 23:56:27.524 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - -
+2023-04-09 23:56:27.525 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-09 23:56:27.528 +05:30 [INF] Route matched with {action = "Create", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:27.536 +05:30 [INF] Executing PartialViewResult, running view Create.
+2023-04-09 23:56:27.630 +05:30 [INF] Executed PartialViewResult - view null executed in 96.5978ms.
+2023-04-09 23:56:27.630 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Create (TYProject.Web) in 101.5961ms
+2023-04-09 23:56:27.630 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-09 23:56:27.632 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - - - 200 - text/html;+charset=utf-8 108.2491ms
+2023-04-09 23:56:27.665 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:27.667 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.3412ms
+2023-04-09 23:56:27.674 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:56:27.713 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.7548ms
+2023-04-09 23:56:29.579 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:29.581 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.2309ms
+2023-04-09 23:56:47.941 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=5 - -
+2023-04-09 23:56:47.943 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:47.944 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:47.949 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:56:47.950 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:56:47.954 +05:30 [INF] Executed ViewResult - view Detail executed in 4.1526ms.
+2023-04-09 23:56:47.954 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 10.7387ms
+2023-04-09 23:56:47.955 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:47.961 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=5 - - - 200 - text/html;+charset=utf-8 19.2691ms
+2023-04-09 23:56:47.990 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:47.990 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:56:47.992 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.8611ms
+2023-04-09 23:56:48.042 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.7506ms
+2023-04-09 23:56:48.185 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=5 - -
+2023-04-09 23:56:48.186 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:48.186 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:48.192 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:48.193 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:48.194 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 7.9032ms
+2023-04-09 23:56:48.194 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:48.194 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=5 - - - 200 - application/json;+charset=utf-8 8.8734ms
+2023-04-09 23:56:50.743 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=5 - -
+2023-04-09 23:56:50.743 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:50.744 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:50.752 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:50.753 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:50.754 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 10.6287ms
+2023-04-09 23:56:50.754 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:50.755 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=5 - - - 200 - application/json;+charset=utf-8 12.1341ms
+2023-04-09 23:56:51.320 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:51.321 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.2450ms
+2023-04-09 23:56:51.525 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-09 23:56:51.526 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:56:51.526 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:51.530 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[ID], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-09 23:56:51.531 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:51.531 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 5.497ms
+2023-04-09 23:56:51.531 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:56:51.532 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 6.4038ms
+2023-04-09 23:56:52.735 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=4 - -
+2023-04-09 23:56:52.738 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:52.738 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:52.744 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:56:52.745 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:56:52.749 +05:30 [INF] Executed ViewResult - view Detail executed in 4.1287ms.
+2023-04-09 23:56:52.749 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 10.3958ms
+2023-04-09 23:56:52.749 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:52.752 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=4 - - - 200 - text/html;+charset=utf-8 16.8444ms
+2023-04-09 23:56:52.767 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:52.769 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:56:52.770 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.7516ms
+2023-04-09 23:56:52.809 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.3018ms
+2023-04-09 23:56:52.938 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=4 - -
+2023-04-09 23:56:52.938 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:52.939 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:52.946 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:52.946 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:52.947 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 7.9906ms
+2023-04-09 23:56:52.947 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:52.947 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=4 - - - 200 - application/json;+charset=utf-8 9.0506ms
+2023-04-09 23:56:54.930 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=4 - -
+2023-04-09 23:56:54.931 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:54.931 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:54.947 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:54.948 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:54.949 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 17.0287ms
+2023-04-09 23:56:54.949 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:54.949 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=4 - - - 200 - application/json;+charset=utf-8 19.4532ms
+2023-04-09 23:56:55.273 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:55.274 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.6006ms
+2023-04-09 23:56:56.270 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - -
+2023-04-09 23:56:56.271 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:56.271 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:56.278 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:56:56.278 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:56:56.282 +05:30 [INF] Executed ViewResult - view Detail executed in 3.849ms.
+2023-04-09 23:56:56.282 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 10.0514ms
+2023-04-09 23:56:56.282 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:56.285 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - - - 200 - text/html;+charset=utf-8 15.3153ms
+2023-04-09 23:56:56.300 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:56:56.302 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:56.304 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.9607ms
+2023-04-09 23:56:56.352 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.9894ms
+2023-04-09 23:56:56.428 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - -
+2023-04-09 23:56:56.429 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:56.430 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:56.444 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:56.444 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:56.445 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 14.9077ms
+2023-04-09 23:56:56.445 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:56.445 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - - - 200 - application/json;+charset=utf-8 16.8417ms
+2023-04-09 23:56:57.568 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:57.569 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.3648ms
+2023-04-09 23:56:58.743 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - -
+2023-04-09 23:56:58.744 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:58.745 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:56:58.751 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:56:58.752 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:56:58.755 +05:30 [INF] Executed ViewResult - view Detail executed in 3.4017ms.
+2023-04-09 23:56:58.755 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 10.5031ms
+2023-04-09 23:56:58.755 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:56:58.758 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=2 - - - 200 - text/html;+charset=utf-8 14.8398ms
+2023-04-09 23:56:58.773 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:56:58.774 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.2713ms
+2023-04-09 23:56:58.774 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:56:58.826 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.8086ms
+2023-04-09 23:56:58.886 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=2 - -
+2023-04-09 23:56:58.886 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:58.886 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:56:58.891 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:56:58.892 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:56:58.892 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 5.9911ms
+2023-04-09 23:56:58.892 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:56:58.893 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=2 - - - 200 - application/json;+charset=utf-8 6.8549ms
+2023-04-09 23:57:00.016 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:00.020 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 3.8508ms
+2023-04-09 23:57:01.004 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - -
+2023-04-09 23:57:01.006 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:57:01.006 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:57:01.012 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:57:01.013 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:57:01.017 +05:30 [INF] Executed ViewResult - view Detail executed in 4.0372ms.
+2023-04-09 23:57:01.017 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 11.2167ms
+2023-04-09 23:57:01.017 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:57:01.020 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - - - 200 - text/html;+charset=utf-8 15.9962ms
+2023-04-09 23:57:01.035 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:57:01.035 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:01.036 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.1541ms
+2023-04-09 23:57:01.080 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.8508ms
+2023-04-09 23:57:01.147 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - -
+2023-04-09 23:57:01.148 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:57:01.148 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:57:01.159 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:57:01.161 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:57:01.162 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 14.1165ms
+2023-04-09 23:57:01.162 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:57:01.163 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - - - 200 - application/json;+charset=utf-8 15.8523ms
+2023-04-09 23:57:02.597 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:02.600 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.3666ms
+2023-04-09 23:57:05.171 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - -
+2023-04-09 23:57:05.173 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-09 23:57:05.174 +05:30 [INF] Route matched with {action = "Create", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:57:05.176 +05:30 [INF] Executing PartialViewResult, running view Create.
+2023-04-09 23:57:05.196 +05:30 [INF] Executed PartialViewResult - view null executed in 19.516ms.
+2023-04-09 23:57:05.196 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Create (TYProject.Web) in 21.9627ms
+2023-04-09 23:57:05.196 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Create (TYProject.Web)'
+2023-04-09 23:57:05.197 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Create?companyId= - - - 200 - text/html;+charset=utf-8 25.9798ms
+2023-04-09 23:57:05.214 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:05.214 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:57:05.216 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.4086ms
+2023-04-09 23:57:05.273 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.4030ms
+2023-04-09 23:57:06.930 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:06.931 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.2666ms
+2023-04-09 23:57:06.960 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-09 23:57:06.960 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:57:06.960 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:57:06.964 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[ID], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-09 23:57:06.964 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:57:06.964 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 4.0431ms
+2023-04-09 23:57:06.965 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:57:06.965 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 4.8013ms
+2023-04-09 23:57:07.643 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - -
+2023-04-09 23:57:07.645 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:57:07.645 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:57:07.650 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:57:07.651 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:57:07.656 +05:30 [INF] Executed ViewResult - view Detail executed in 5.0465ms.
+2023-04-09 23:57:07.657 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 11.8895ms
+2023-04-09 23:57:07.657 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:57:07.660 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=3 - - - 200 - text/html;+charset=utf-8 16.9729ms
+2023-04-09 23:57:07.676 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:57:07.676 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:07.677 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.0057ms
+2023-04-09 23:57:07.722 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.6116ms
+2023-04-09 23:57:07.804 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - -
+2023-04-09 23:57:07.804 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:57:07.805 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:57:07.823 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:57:07.823 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:57:07.824 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 18.3209ms
+2023-04-09 23:57:07.824 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:57:07.824 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - - - 200 - application/json;+charset=utf-8 20.8012ms
+2023-04-09 23:57:10.317 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - -
+2023-04-09 23:57:10.317 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:57:10.317 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:57:10.329 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:57:10.330 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:57:10.331 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 13.4465ms
+2023-04-09 23:57:10.331 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:57:10.331 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=3 - - - 200 - application/json;+charset=utf-8 14.6842ms
+2023-04-09 23:57:11.557 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=3 - -
+2023-04-09 23:57:11.558 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:57:11.567 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:57:11.570 +05:30 [INF] Executing ViewResult, running view Create.
+2023-04-09 23:57:11.622 +05:30 [INF] Executed ViewResult - view Create executed in 54.0017ms.
+2023-04-09 23:57:11.623 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 55.8469ms
+2023-04-09 23:57:11.623 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:57:11.625 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=3 - - - 200 - text/html;+charset=utf-8 68.0082ms
+2023-04-09 23:57:11.648 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:11.649 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:57:11.651 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.1073ms
+2023-04-09 23:57:11.697 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.3146ms
+2023-04-09 23:57:13.113 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:13.117 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 3.2552ms
+2023-04-09 23:57:14.986 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:14.992 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 5.2966ms
+2023-04-09 23:57:15.183 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-09 23:57:15.183 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:57:15.184 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:57:15.188 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[ID], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-09 23:57:15.188 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:57:15.188 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 4.7231ms
+2023-04-09 23:57:15.189 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:57:15.189 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 5.7018ms
+2023-04-09 23:57:50.949 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-09 23:57:50.951 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-09 23:57:50.953 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:57:50.955 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-09 23:57:50.967 +05:30 [INF] Executed ViewResult - view Index executed in 13.1259ms.
+2023-04-09 23:57:50.967 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 13.8635ms
+2023-04-09 23:57:50.967 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-09 23:57:50.977 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 28.3158ms
+2023-04-09 23:57:51.004 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:57:51.004 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:57:51.006 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.5951ms
+2023-04-09 23:57:51.035 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.9413ms
+2023-04-09 23:57:51.449 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-09 23:57:51.452 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:57:51.454 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:57:51.459 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[ID], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-09 23:57:51.459 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:57:51.460 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 5.8732ms
+2023-04-09 23:57:51.460 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:57:51.460 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 10.9196ms
+2023-04-09 23:58:50.087 +05:30 [INF] Registered 5 endpoints in 733 milliseconds.
+2023-04-09 23:58:50.589 +05:30 [INF] User profile is available. Using 'C:\Users\Neha\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-04-09 23:58:53.666 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-04-09 23:58:53.738 +05:30 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2023-04-09 23:58:54.295 +05:30 [ERR] Failed executing DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ToDoItems] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-04-09 23:58:54.367 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:f23f4ae4-473e-401e-8073-fc6289ce3afb
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:f23f4ae4-473e-401e-8073-fc6289ce3afb
+Error Number:208,State:1,Class:16
+2023-04-09 23:58:54.490 +05:30 [ERR] An error occurred seeding the DB. Invalid object name 'ToDoItems'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'ToDoItems'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method460(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at TYProject.Web.SeedData.Initialize(IServiceProvider serviceProvider) in C:\Pabulum\Pabulum-1\src\TYProject.Web\SeedData.cs:line 35
+   at Program.<Main>$(String[] args) in C:\Pabulum\Pabulum-1\src\TYProject.Web\Program.cs:line 97
+ClientConnectionId:f23f4ae4-473e-401e-8073-fc6289ce3afb
+Error Number:208,State:1,Class:16
+2023-04-09 23:58:54.847 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-04-09 23:58:54.847 +05:30 [INF] Hosting environment: Development
+2023-04-09 23:58:54.847 +05:30 [INF] Content root path: C:\Pabulum\Pabulum-1\src\TYProject.Web
+2023-04-09 23:58:54.924 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/ - -
+2023-04-09 23:58:55.160 +05:30 [WRN] Failed to determine the https port for redirect.
+2023-04-09 23:58:55.228 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-09 23:58:55.250 +05:30 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.HomeController (TYProject.Web).
+2023-04-09 23:58:55.281 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-09 23:58:55.729 +05:30 [INF] Executed ViewResult - view Index executed in 451.5376ms.
+2023-04-09 23:58:55.741 +05:30 [INF] Executed action TYProject.Web.Controllers.HomeController.Index (TYProject.Web) in 488.4789ms
+2023-04-09 23:58:55.742 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.HomeController.Index (TYProject.Web)'
+2023-04-09 23:58:55.850 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/ - - - 200 - text/html;+charset=utf-8 928.6486ms
+2023-04-09 23:58:55.902 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:58:55.908 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 5.0982ms
+2023-04-09 23:58:55.919 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:58:55.987 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 67.6208ms
+2023-04-09 23:59:00.567 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company - -
+2023-04-09 23:59:00.578 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-09 23:59:00.584 +05:30 [INF] Route matched with {action = "Index", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:59:00.591 +05:30 [INF] Executing ViewResult, running view Index.
+2023-04-09 23:59:00.617 +05:30 [INF] Executed ViewResult - view Index executed in 28.8662ms.
+2023-04-09 23:59:00.618 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Index (TYProject.Web) in 33.7036ms
+2023-04-09 23:59:00.618 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Index (TYProject.Web)'
+2023-04-09 23:59:00.624 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company - - - 200 - text/html;+charset=utf-8 57.1457ms
+2023-04-09 23:59:00.660 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:59:00.660 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:59:00.664 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 4.3915ms
+2023-04-09 23:59:00.717 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.7544ms
+2023-04-09 23:59:00.818 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - -
+2023-04-09 23:59:00.822 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:59:00.824 +05:30 [INF] Route matched with {action = "AllCompanies", controller = "Company", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.JsonResult AllCompanies() on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:59:01.007 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[ID], [c].[Name], CASE
+    WHEN [c].[IsDeleted] = CAST(0 AS bit) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+FROM [Company] AS [c]
+2023-04-09 23:59:01.039 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.CompanyController+CompanyBasicInfoModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:59:01.220 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web) in 395.9348ms
+2023-04-09 23:59:01.220 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.AllCompanies (TYProject.Web)'
+2023-04-09 23:59:01.230 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/AllCompanies - - - 200 - application/json;+charset=utf-8 411.5863ms
+2023-04-09 23:59:03.895 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=4 - -
+2023-04-09 23:59:03.901 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:59:03.934 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:59:04.114 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=4 - -
+2023-04-09 23:59:04.116 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:59:04.116 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:59:04.204 +05:30 [INF] Executed DbCommand (88ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:59:04.204 +05:30 [INF] Executed DbCommand (42ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:59:04.362 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:59:04.362 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:59:04.385 +05:30 [INF] Executed ViewResult - view Detail executed in 23.606ms.
+2023-04-09 23:59:04.385 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 269.0953ms
+2023-04-09 23:59:04.385 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:59:04.387 +05:30 [INF] Executed ViewResult - view Detail executed in 25.8636ms.
+2023-04-09 23:59:04.388 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 453.1429ms
+2023-04-09 23:59:04.388 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:59:04.390 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=4 - - - 200 - text/html;+charset=utf-8 276.3317ms
+2023-04-09 23:59:04.394 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=4 - - - 200 - text/html;+charset=utf-8 498.9677ms
+2023-04-09 23:59:04.438 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:59:04.439 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:59:04.440 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.4898ms
+2023-04-09 23:59:04.492 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.0210ms
+2023-04-09 23:59:04.562 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=4 - -
+2023-04-09 23:59:04.563 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:59:04.570 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:59:04.767 +05:30 [INF] Executed DbCommand (29ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:59:04.783 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:59:04.791 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 221.4453ms
+2023-04-09 23:59:04.792 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:59:04.792 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=4 - - - 200 - application/json;+charset=utf-8 229.5935ms
+2023-04-09 23:59:05.434 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:59:05.437 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.6044ms
+2023-04-09 23:59:06.261 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - -
+2023-04-09 23:59:06.263 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:59:06.263 +05:30 [INF] Route matched with {action = "Detail", controller = "Company", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(Int64) on controller TYProject.Web.Controllers.CompanyController (TYProject.Web).
+2023-04-09 23:59:06.270 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__p_0
+2023-04-09 23:59:06.271 +05:30 [INF] Executing ViewResult, running view Detail.
+2023-04-09 23:59:06.279 +05:30 [INF] Executed ViewResult - view Detail executed in 7.9528ms.
+2023-04-09 23:59:06.280 +05:30 [INF] Executed action TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web) in 16.4356ms
+2023-04-09 23:59:06.280 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.CompanyController.Detail (TYProject.Web)'
+2023-04-09 23:59:06.283 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Company/Detail?id=1 - - - 200 - text/html;+charset=utf-8 22.0027ms
+2023-04-09 23:59:06.306 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:59:06.307 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:59:06.307 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.4742ms
+2023-04-09 23:59:06.348 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.0343ms
+2023-04-09 23:59:06.417 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - -
+2023-04-09 23:59:06.419 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:59:06.419 +05:30 [INF] Route matched with {action = "AllPeople", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] AllPeople(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:59:06.426 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__companyId_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[ID], [t].[CreatedBy], [t].[CreatedOnDate], [t].[Description], [t].[IsDeleted], [t].[LastModifiedBy], [t].[LastModifiedOnDate], [t].[Name], [t].[RowVer], [p].[Id], [p].[CompanyId], [p].[CreatedBy], [p].[CreatedOnDate], [p].[DOB], [p].[FirstName], [p].[GENDER], [p].[IsDeleted], [p].[LastModifiedBy], [p].[LastModifiedOnDate], [p].[LastName], [p].[MiddleName], [p].[RowVer], [p].[Type]
+FROM (
+    SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+    FROM [Company] AS [c]
+    WHERE [c].[ID] = @__companyId_0
+) AS [t]
+LEFT JOIN [Person] AS [p] ON [t].[ID] = [p].[CompanyId]
+ORDER BY [t].[ID]
+2023-04-09 23:59:06.513 +05:30 [INF] Executing JsonResult, writing value of type 'TYProject.Web.Controllers.PersonController+OperationResult`1[[System.Collections.Generic.IList`1[[TYProject.Web.Controllers.PersonController+PersonViewModel, TYProject.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-04-09 23:59:06.526 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web) in 106.8384ms
+2023-04-09 23:59:06.526 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.AllPeople (TYProject.Web)'
+2023-04-09 23:59:06.527 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/AllPeople?companyId=1 - - - 200 - application/json;+charset=utf-8 109.2580ms
+2023-04-09 23:59:09.903 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=1 - -
+2023-04-09 23:59:09.905 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:59:09.912 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:59:09.917 +05:30 [INF] Executing ViewResult, running view Create.
+2023-04-09 23:59:10.109 +05:30 [INF] Executed ViewResult - view Create executed in 194.5679ms.
+2023-04-09 23:59:10.110 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 197.1515ms
+2023-04-09 23:59:10.110 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:59:10.114 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=1 - - - 200 - text/html;+charset=utf-8 211.6063ms
+2023-04-09 23:59:10.151 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:59:10.152 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.5375ms
+2023-04-09 23:59:10.155 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:59:10.207 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.6110ms
+2023-04-09 23:59:28.753 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Person/Create?companyId=1 application/x-www-form-urlencoded 280
+2023-04-09 23:59:28.755 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:59:28.782 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PersonViewModel) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:59:28.890 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__person_Companyid_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__person_Companyid_0
+2023-04-09 23:59:29.219 +05:30 [INF] Executed DbCommand (44ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (Size = 200), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = Int64), @p8='?' (DbType = DateTime), @p9='?' (Size = 200), @p10='?' (Size = 200), @p11='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Person] ([CompanyId], [CreatedBy], [CreatedOnDate], [DOB], [FirstName], [GENDER], [IsDeleted], [LastModifiedBy], [LastModifiedOnDate], [LastName], [MiddleName], [Type])
+OUTPUT INSERTED.[Id], INSERTED.[RowVer]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2023-04-09 23:59:29.254 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'TYProject.dbo.Person', column 'GENDER'. Truncated value: 'M'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:3390131f-df01-4f46-8fb1-7eb43661babd
+Error Number:2628,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'TYProject.dbo.Person', column 'GENDER'. Truncated value: 'M'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:3390131f-df01-4f46-8fb1-7eb43661babd
+Error Number:2628,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-04-09 23:59:29.447 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 664.8241ms
+2023-04-09 23:59:29.449 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:59:29.451 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'TYProject.dbo.Person', column 'GENDER'. Truncated value: 'M'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:3390131f-df01-4f46-8fb1-7eb43661babd
+Error Number:2628,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at TYProject.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in C:\Pabulum\Pabulum-1\src\TYProject.Infrastructure\Data\AppDbContext.cs:line 48
+   at TYProject.Web.Controllers.PersonController.Create(PersonViewModel person) in C:\Pabulum\Pabulum-1\src\TYProject.Web\Controllers\PersonController.cs:line 84
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-04-09 23:59:29.660 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Person/Create?companyId=1 application/x-www-form-urlencoded 280 - 500 - text/html;+charset=utf-8 906.4093ms
+2023-04-09 23:59:29.669 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:59:29.669 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:59:29.671 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.9730ms
+2023-04-09 23:59:29.720 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 50.9165ms
+2023-04-09 23:59:33.088 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=1 - -
+2023-04-09 23:59:33.090 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:59:33.090 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create(Int64) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:59:33.091 +05:30 [INF] Executing ViewResult, running view Create.
+2023-04-09 23:59:33.107 +05:30 [INF] Executed ViewResult - view Create executed in 16.0056ms.
+2023-04-09 23:59:33.107 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 17.2156ms
+2023-04-09 23:59:33.107 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:59:33.111 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/Person/Create?companyId=1 - - - 200 - text/html;+charset=utf-8 22.9697ms
+2023-04-09 23:59:33.135 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:59:33.137 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.8136ms
+2023-04-09 23:59:35.083 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:57678/Person/Create?companyId=1 application/x-www-form-urlencoded 280
+2023-04-09 23:59:35.084 +05:30 [INF] Executing endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:59:35.085 +05:30 [INF] Route matched with {action = "Create", controller = "Person", page = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(PersonViewModel) on controller TYProject.Web.Controllers.PersonController (TYProject.Web).
+2023-04-09 23:59:35.109 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__person_Companyid_0='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[ID], [c].[CreatedBy], [c].[CreatedOnDate], [c].[Description], [c].[IsDeleted], [c].[LastModifiedBy], [c].[LastModifiedOnDate], [c].[Name], [c].[RowVer]
+FROM [Company] AS [c]
+WHERE [c].[ID] = @__person_Companyid_0
+2023-04-09 23:59:35.131 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int64), @p1='?' (DbType = Int64), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (Size = 200), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = Int64), @p8='?' (DbType = DateTime), @p9='?' (Size = 200), @p10='?' (Size = 200), @p11='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Person] ([CompanyId], [CreatedBy], [CreatedOnDate], [DOB], [FirstName], [GENDER], [IsDeleted], [LastModifiedBy], [LastModifiedOnDate], [LastName], [MiddleName], [Type])
+OUTPUT INSERTED.[Id], INSERTED.[RowVer]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2023-04-09 23:59:35.139 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'TYProject.Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'TYProject.dbo.Person', column 'GENDER'. Truncated value: 'M'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:3390131f-df01-4f46-8fb1-7eb43661babd
+Error Number:2628,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'TYProject.dbo.Person', column 'GENDER'. Truncated value: 'M'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:3390131f-df01-4f46-8fb1-7eb43661babd
+Error Number:2628,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2023-04-09 23:59:35.257 +05:30 [INF] Executed action TYProject.Web.Controllers.PersonController.Create (TYProject.Web) in 171.7585ms
+2023-04-09 23:59:35.257 +05:30 [INF] Executed endpoint 'TYProject.Web.Controllers.PersonController.Create (TYProject.Web)'
+2023-04-09 23:59:35.258 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated in table 'TYProject.dbo.Person', column 'GENDER'. Truncated value: 'M'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:3390131f-df01-4f46-8fb1-7eb43661babd
+Error Number:2628,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at TYProject.Infrastructure.Data.AppDbContext.SaveChangesAsync(CancellationToken cancellationToken) in C:\Pabulum\Pabulum-1\src\TYProject.Infrastructure\Data\AppDbContext.cs:line 48
+   at TYProject.Web.Controllers.PersonController.Create(PersonViewModel person) in C:\Pabulum\Pabulum-1\src\TYProject.Web\Controllers\PersonController.cs:line 84
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Ardalis.ListStartupServices.ShowAllServicesMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-04-09 23:59:35.289 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:57678/Person/Create?companyId=1 application/x-www-form-urlencoded 280 - 500 - text/html;+charset=utf-8 206.7427ms
+2023-04-09 23:59:35.301 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_vs/browserLink - -
+2023-04-09 23:59:35.301 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - -
+2023-04-09 23:59:35.303 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7888ms
+2023-04-09 23:59:35.339 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:57678/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.7815ms

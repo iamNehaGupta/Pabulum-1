@@ -198,7 +198,7 @@ public partial class CompanyController : Controller
         return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
       }
 
-      company.IsDeleted = payload.IsDeleted;
+      company.IsDeleted = payload.IsDeleted; 
       company.LastModifiedBy = 1;
       company.LastModifiedOnDate = DateTime.Now;
 

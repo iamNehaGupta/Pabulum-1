@@ -38,7 +38,7 @@ public class PersonController : Controller
   [AllowAnonymous]
   public IActionResult Create(long companyId)
   {
-    var vm = new PersonViewModel(0, companyId, string.Empty, null, null, DateTime.Now, Gender.Male.ToString(), false, Array.Empty<byte>());
+    var vm = new PersonViewModel(0, companyId, string.Empty, null, null, DateTime.Now, Gender.Male, false, Array.Empty<byte>());
     return View(vm);
   }
 
@@ -71,9 +71,9 @@ public class PersonController : Controller
       FirstName = person.FirstName,
       LastName = person.LastName,
       MiddleName = person.MiddleName,
-      Type = Core.PersonAggregate.Type.Employee.ToString(),
+      Type = Core.PersonAggregate.Type.Employee,
       DOB = person.DOB,
-      GENDER = person.Gender.ToString(),
+      GENDER = person.Gender,
       IsDeleted = false,
       CreatedBy = 1,
       CreatedOnDate = DateTime.Now,
@@ -82,6 +82,22 @@ public class PersonController : Controller
     company.People.Add(model);
 
     await context.SaveChangesAsync();
+    return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
+  }
+
+  public async Task<IActionResult> Delete(int id)
+  {
+    var person = context.People.Where(x => x.Id == id).FirstOrDefault();
+
+    if(person is null)
+    {
+      return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
+    }
+
+    person.IsDeleted = true;
+
+    await context.SaveChangesAsync();
+
     return Json(new OperationResult(ModelState.IsValid, ModelState.GetErrors()));
   }
 
@@ -344,11 +360,11 @@ public class PersonController : Controller
       Companyid = 0;
       FirstName = string.Empty;
       DOB = DateTime.Now;
-      Gender = Core.PersonAggregate.Gender.Male.ToString();
+      Gender = Core.PersonAggregate.Gender.Male;
       IsDeleted = false;
       RowVer = Array.Empty<byte>();
     }
-    public PersonViewModel(long id, long companyid, string firstName, string? lastName, string? middleName, DateTime dob, string gender, bool isDeleted, byte[] rowVer)
+    public PersonViewModel(long id, long companyid, string firstName, string? lastName, string? middleName, DateTime dob, Gender gender, bool isDeleted, byte[] rowVer)
     {
       Id = id;
       Companyid = companyid;
@@ -373,7 +389,7 @@ public class PersonController : Controller
     [Display(Name = "Date of Birth")]
     [DataType(DataType.Date)]
     public DateTime DOB { get; set; }
-    public string Gender { get; set; }
+    public Core.PersonAggregate.Gender Gender { get; set; }
     public bool IsDeleted { get; set; }
     public byte[] RowVer { get; set; }
   }
